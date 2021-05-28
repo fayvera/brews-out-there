@@ -5,8 +5,12 @@ import { MenuItems } from './MenuItems'
 
 class NavBar extends Component {
 
-
     state = {clicked: false}
+
+    // create helper method to check if user is logged in
+    handleClick = () => {
+        
+    }
 
     render(){
         console.log(brew)
@@ -14,7 +18,8 @@ class NavBar extends Component {
             <nav className="navbar-items">
                 <img className="navbar-logo" src={brew} alt="Logo" />
                 <div className="menu-icon"></div>
-                <ul>
+                {/* not logged in ? display signup/login : search */}
+                <ul >
                     {MenuItems.map((item, index) => {
                       return(
                         <li key={index}>

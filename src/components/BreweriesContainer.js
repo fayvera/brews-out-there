@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Search from './search'
 import Breweries from './Breweries'
+import { connect } from 'react-redux';
 
 class BreweriesContainer extends Component{
     constructor(){
@@ -13,7 +14,9 @@ class BreweriesContainer extends Component{
     componentDidMount = () => {
         fetch("https://api.openbrewerydb.org/breweries")
         .then(resp => resp.json())
-        .then(console.log)
+        .then(data => this.setState(
+            console.log(data)
+        ))
 
     }
 
@@ -27,5 +30,9 @@ class BreweriesContainer extends Component{
         )
     }
 }
+
+// const mapDispatchToProps = dispatch => {
+
+// }
 
 export default BreweriesContainer;

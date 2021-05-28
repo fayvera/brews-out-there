@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom'
 import BreweriesContainer from './components/BreweriesContainer'
 
 class App extends React.Component{
-
+  
   // NavBar and Routes
   render(){
     return(

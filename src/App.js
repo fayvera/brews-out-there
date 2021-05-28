@@ -2,6 +2,7 @@
 import './App.css';
 import React from 'react'
 import { Route } from 'react-router-dom'
+import BreweriesContainer from './components/BreweriesContainer'
 
 class App extends React.Component{
 
@@ -9,8 +10,8 @@ class App extends React.Component{
   render(){
     return(
       <div>
-        <Route path='/Breweries'>
-
+        <Route path="/breweries">
+          <BreweriesContainer />
         </Route>
       </div>
     )

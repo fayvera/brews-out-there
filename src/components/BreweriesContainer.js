@@ -11,6 +11,7 @@ class BreweriesContainer extends Component{
             breweries: []
         }
     }
+    
 
     // componentDidMount = () => {
     //     fetch("https://api.openbrewerydb.org/breweries")
@@ -27,7 +28,7 @@ class BreweriesContainer extends Component{
             <div className="brewery-wrapper">
                 <div className="search-bar"><Search /></div>
                 
-                <Breweries fetchBreweries/>
+                <Breweries breweries={fetchBreweries}/>
             </div>
         )
     }

@@ -9,7 +9,7 @@ class NavBar extends Component {
 
     // create helper method to check if user is logged in
     handleClick = () => {
-        
+        this.setState({ clicked: !this.state.clicked })
     }
 
     render(){
@@ -17,7 +17,7 @@ class NavBar extends Component {
         return(
             <nav className="navbar-items">
                 <img className="navbar-logo" src={brew} alt="Logo" />
-                <div className="menu-icon"></div>
+                <div className="menu-icon" onClick={this.handleClick}></div>
                 {/* not logged in ? display signup/login : search */}
                 <ul className="nav-menu">
                     {MenuItems.map((item, index) => {

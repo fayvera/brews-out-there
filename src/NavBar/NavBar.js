@@ -19,7 +19,7 @@ class NavBar extends Component {
                 <img className="navbar-logo" src={brew} alt="Logo" />
                 <div className="menu-icon"></div>
                 {/* not logged in ? display signup/login : search */}
-                <ul >
+                <ul className="nav-menu">
                     {MenuItems.map((item, index) => {
                       return(
                         <li key={index}>

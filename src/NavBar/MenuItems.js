@@ -2,12 +2,12 @@ export const MenuItems = [
     {
         title: "Home",
         url: "#",
-        cName: 'navbar-item'
+        cName: 'nav-links'
     },
     {
         title: "Menu",
         url: '#',
-        cName: 'navbar-item'
+        cName: 'nav-links'
     },
 ]
 

@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import './navbar.css'
 import brew from './brew.png'
 import { MenuItems } from './MenuItems'
-import User from '../components/User'
+import {UserLogin} from '../components/UserLogin'
+import { signUp } from '../components/UserSignUp'
 
 class NavBar extends Component {
 
@@ -14,14 +15,13 @@ class NavBar extends Component {
     }
 
     render(){
-        console.log(brew)
         return(
             <nav className="navbar-items">
                 <img className="navbar-logo" src={brew} alt="Logo" />
+                {/* not logged in ? display signup/login : search */}
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}></i>
                 </div>
-                {/* not logged in ? display signup/login : search */}
                 <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
                     {MenuItems.map((item, index) => {
                       return(

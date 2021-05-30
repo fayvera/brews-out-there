@@ -34,8 +34,5 @@ class BreweriesContainer extends Component{
     }
 }
 
-// const mapDispatchToProps = dispatch => {
-
-// }
 
 export default BreweriesContainer;

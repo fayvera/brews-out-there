@@ -18,9 +18,11 @@ class NavBar extends Component {
         return(
             <nav className="navbar-items">
                 <img className="navbar-logo" src={brew} alt="Logo" />
-                <div className="menu-icon" onClick={this.handleClick}></div>
+                <div className="menu-icon" onClick={this.handleClick}>
+                    <i className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}></i>
+                </div>
                 {/* not logged in ? display signup/login : search */}
-                <ul className="nav-menu">
+                <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
                     {MenuItems.map((item, index) => {
                       return(
                         <li key={index}>

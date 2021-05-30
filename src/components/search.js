@@ -1,13 +1,18 @@
 import React from 'react'
 
 const Search = () => {
-    // handleSubmit = () => {
 
-    // }
+   const handleSubmit = event => {
+        event.preventDefault();
+
+    }
+
     return(
         <div>
-            <input type="text" placeholder="Search by location"/><br></br>
-            <input type="submit"  />
+            <form onSubmit={this.handleSubmit}>
+                <input type="text" placeholder="Search by location"/><br></br>
+                <input type="submit"  />
+            </form>
         </div>
     
     )

@@ -27,12 +27,13 @@ import React, { Component } from 'react';
 
 
 export const login = () => {
+    // const [name, setName] =;
 
     return(
         <div className="login">
             <form className="login_form">
                 <h1>Log In</h1>
-                <input type="text" placeholder="Name"/>
+                <input type="text" placeholder="Name" />
                 <input type="email" placeholder="Email"/>
                 <input type="password" placeholder="Password"/>
             </form>

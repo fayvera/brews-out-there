@@ -8,13 +8,18 @@ class UserContainer extends Component {
     }
 
     render(){
+        console.log("helly")
         return(
             <div>
+                
                 {/* create buttons for login and signup */}
                 {/* <button className="login" onClick={this.handleClick}>Log In</button><br>
                 </br>
                 <button className="signup">Sign Up</button> */}
-                <signUp />
+                {/* <login />
+                <signUp /> */}
+                {/* < login >
+                </login> */}
             </div>
         )
     }

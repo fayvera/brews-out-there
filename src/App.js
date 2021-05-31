@@ -14,7 +14,7 @@ class App extends React.Component{
       <div>
         <NavBar />
         <UserContainer >
-          <Route path="/signup">
+          {/* <Route path="/signup">
             <signUp />
           </Route>
           <Route path="/login">
@@ -22,7 +22,7 @@ class App extends React.Component{
           </Route>
           <Route path="/breweries">
             <BreweriesContainer />
-          </Route>
+          </Route> */}
        </UserContainer>
       </div>
     )

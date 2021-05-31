@@ -42,6 +42,7 @@
       opacity: 1;
       transition: all 0.5s ease;
       z-index: 1;
+      list-style: none;
   }
 
   .nav-links {
@@ -50,7 +51,8 @@
       padding: 2rem;
       list-style: none;
       text-align: center;
-      width: 100%;
+      /* width: 110%;
+      margin-left: -110px; */
       display: table;
       font-size: 1.5rem;
   }

@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import './navbar.css'
 import brew from './brew.png'
 import { MenuItems } from './MenuItems'
-import {UserLogin} from '../components/UserLogin'
-import { signUp } from '../components/UserSignUp'
 
 class NavBar extends Component {
 

@@ -1,0 +1,23 @@
+import React, { Component } from 'react';
+import { signUp } from './UserSignUp';
+import { login } from './UserLogin'
+
+class UserContainer extends Component {
+    handleClick = () => {
+
+    }
+
+    render(){
+        return(
+            <div>
+                {/* create buttons for login and signup */}
+                {/* <button className="login" onClick={this.handleClick}>Log In</button><br>
+                </br>
+                <button className="signup">Sign Up</button> */}
+                <signUp />
+            </div>
+        )
+    }
+}
+
+export default UserContainer

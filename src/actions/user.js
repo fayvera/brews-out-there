@@ -10,7 +10,7 @@ export const login = (data = {}) => {
         })
         .then(r=> r.json())
         .then(res => {localStorage.setItem('token', res.data.token)})
-        // .then({ type: "LOG_IN", payload: data})
+        .then({ type: "LOG_IN", payload: data})
         .catch(err => console.log(err))
     }
 }

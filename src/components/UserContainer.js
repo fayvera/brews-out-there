@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import signUp from './UserSignUp';
+import SignUp from './UserSignUp';
 import Login from './UserLogin'
 import {Route, Switch} from 'react-router-dom'
 import {currentUser} from '../actions/user.js'
@@ -29,7 +29,7 @@ class UserContainer extends Component {
             <div>
                 <Switch>
                     <Route path="/signup" >
-                        <signUp />
+                        <SignUp />
                     </Route>
                     <Route path="/login">
                         <Login />
@@ -37,8 +37,8 @@ class UserContainer extends Component {
                     {/* create buttons for login and signup */}
                     <button className="login" onClick={this.handleSignIn}>Log In</button><br>
                     </br>
-                </Switch>
                     <button className="signup">Sign Up</button>
+                </Switch>
             </div>
         )
     }
@@ -46,7 +46,7 @@ class UserContainer extends Component {
 // mapStateToProps to keep track of current state
 
 const mapStateToProps = state => {
-    
+
 }
 
 

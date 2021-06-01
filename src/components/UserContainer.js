@@ -1,28 +1,32 @@
 import React, { Component } from 'react';
-import { signUp } from './UserSignUp';
-import { login } from './UserLogin'
+import signUp from './UserSignUp';
+import Login from './UserLogin'
+import {Route, Switch} from 'react-router-dom'
 
 class UserContainer extends Component {
-    handleClick = () => {
+    handleSignIn = () => {
 
     }
 
     render(){
-        console.log("helly")
         return(
             <div>
-                
-                {/* create buttons for login and signup */}
-                {/* <button className="login" onClick={this.handleClick}>Log In</button><br>
-                </br>
-                <button className="signup">Sign Up</button> */}
-                {/* <login />
-                <signUp /> */}
-                {/* < login >
-                </login> */}
+                <Switch>
+                    <Route path="/signup" >
+                        <signUp />
+                    </Route>
+                    <Route path="/login">
+                        <Login />
+                    </Route>
+                    {/* create buttons for login and signup */}
+                    <button className="login" onClick={this.handleSignIn}>Log In</button><br>
+                    </br>
+                </Switch>
+                    <button className="signup">Sign Up</button>
             </div>
         )
     }
 }
 
+// use connect, add second argument from actions to fetch user
 export default UserContainer

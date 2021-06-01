@@ -7,23 +7,19 @@ import UserContainer from './components/UserContainer'
 
 
 class App extends React.Component{
+// helper functions
 
   // NavBar and Routes
   render(){
     return(
       <div>
         <NavBar />
-        <UserContainer >
-          {/* <Route path="/signup">
-            <signUp />
-          </Route>
-          <Route path="/login">
+        <UserContainer />
+    
 
-          </Route>
           <Route path="/breweries">
             <BreweriesContainer />
-          </Route> */}
-       </UserContainer>
+          </Route>
       </div>
     )
   }

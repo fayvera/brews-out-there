@@ -1,6 +1,6 @@
-export default function login(){
+export const login = () => {
     return function(dispatch){
-        fetch('http://localhost:3000/')
+        fetch('http://localhost:3000/api/auth')
     }
 }
 

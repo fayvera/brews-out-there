@@ -2,19 +2,22 @@ import React, { Component } from 'react';
 import signUp from './UserSignUp';
 import Login from './UserLogin'
 import {Route, Switch} from 'react-router-dom'
+import {currentUser} from '../actions/user.js'
+import { connect } from 'react-redux';
 
 class UserContainer extends Component {
 
-    state = {}
+    // if state is empty, user is not logged in
+    
 
-
-    componentDidMount(){
+    componentDidMount() {
         const config = {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token')
             }
-            
         }
+        this.props.currentUser(config)
+        // set state to user info from action "currentUser"
     }
 
     handleSignIn = () => {
@@ -40,6 +43,11 @@ class UserContainer extends Component {
         )
     }
 }
+// mapStateToProps to keep track of current state
 
-// use connect, add second argument from actions to fetch user
-export default UserContainer
+const mapStateToProps = state => {
+    
+}
+
+
+export default connect(mapStateToProps, {currentUser})(UserContainer)

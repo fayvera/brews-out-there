@@ -39,7 +39,6 @@ class Login extends Component {
 
     }
 
-    // if state values are empty, user is not logged in 
 
 
     render(){

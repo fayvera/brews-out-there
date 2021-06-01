@@ -41,6 +41,13 @@ export const logout = () => {
     }
 }
 
-export const currentUser = () => {
-    return function(dispatch)
+export const currentUser = (user)=> {
+    return function(dispatch) {
+        fetch(`http://localhost:300/api/user/${user.id}`)
+        .then(r => r.json())
+        // set state with user data
+        // if no data, user is not logged in
+        .then(r => console.log(r))
+        .catch(err => console.log(err))
+    }
 }

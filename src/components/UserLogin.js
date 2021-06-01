@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import login from '../actions/user.js'
+import { connect } from 'react-redux';
+import { login } from '../actions/user.js'
 
 
 //     handleLogin = event => {
@@ -33,6 +34,7 @@ class Login extends Component {
             email: this.email, 
             password: this.password
         }
+        this.props.login(data)
 
     }
 
@@ -54,12 +56,12 @@ class Login extends Component {
                 placeholder="Password"
                 value={this.state.password}
                 onChange={this.handleChange}/>
-                <button className="login__btn" onSubmit={this.handleSubmit}>LogIn</button>
+                <button className="login__btn" type="submit" onSubmit={this.handleSubmit}>LogIn</button>
             </form>
         </div>
     )
     }
 }
 
-// connect 
-export default Login
+
+export default connect(null, {login})(Login)

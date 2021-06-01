@@ -4,6 +4,11 @@ import Login from './UserLogin'
 import {Route, Switch} from 'react-router-dom'
 
 class UserContainer extends Component {
+
+    componentDidMount(){
+
+    }
+    
     handleSignIn = () => {
 
     }

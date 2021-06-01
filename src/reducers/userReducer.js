@@ -1,9 +1,12 @@
 const reducer = (state = [], action) => {
     switch (action.type){
-    // case "ADD_USER":
+        
+    // case "SIGN_UP":
     //   return state.concat(action.quote);
     // case "DELETE_USER":
     //   return state.filter(user => user.id !== action.user.id)
+    // case "LOG_IN":
+    //   
     // case "LIKE":
     //   index = state.findIndex(quote => quote.id === action.quoteId)
     //   quote = state[index]
@@ -19,3 +22,5 @@ const reducer = (state = [], action) => {
     }
   }
   export default reducer
+
+

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import login from '../actions/user.js'
 
 
 //     handleLogin = event => {
@@ -10,7 +11,7 @@ import React, { Component } from 'react';
 
 
 
-export default class Login extends Component {
+class Login extends Component {
     constructor(){
         super();
         this.state = {
@@ -26,18 +27,21 @@ export default class Login extends Component {
         })
     }
     
+    handleSubmit = e => {
+        e.preventDefault()
+        const data = {
+            email: this.email, 
+            password: this.password
+        }
+
+    }
+
 
     render(){
         return(
             <div className="login">
             <form className="login_form">
                 <h1>Log In</h1>
-                <input 
-                name="name"
-                type="text" 
-                placeholder="Name" 
-                value={this.state.name} 
-                onChange={this.handleChange}/>
                 <input 
                 name="email"
                 type="email" 
@@ -50,8 +54,12 @@ export default class Login extends Component {
                 placeholder="Password"
                 value={this.state.password}
                 onChange={this.handleChange}/>
+                <button className="login__btn" onSubmit={this.handleSubmit}>LogIn</button>
             </form>
         </div>
     )
     }
 }
+
+// connect 
+export default Login

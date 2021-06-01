@@ -34,9 +34,12 @@ class Login extends Component {
             email: this.email, 
             password: this.password
         }
+        
         this.props.login(data)
 
     }
+
+    // if state values are empty, user is not logged in 
 
 
     render(){

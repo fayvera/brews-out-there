@@ -9,8 +9,9 @@ export const login = (data = {}) => {
             body: JSON.stringify({ data })    
         })
         .then(r=> r.json())
-        .then(res => {Storage.setItem('token', res.token)})
+        .then(res => {localStorage.setItem('token', res.data.token)})
         // .then({ type: "LOG_IN", payload: data})
+        .catch(err => console.log(err))
     }
 }
 
@@ -38,4 +39,8 @@ export const logout = () => {
         .then(r => r.json())
         .then(console.log)
     }
+}
+
+export const currentUser = () => {
+    return function(dispatch)
 }

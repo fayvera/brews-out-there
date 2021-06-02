@@ -26,7 +26,7 @@ export const signup = (user = {}) => {
         .then(console.log)
         .catch(err => console.log(err))
     // .then(r => r.json())
-    // .then({ type: 'SIGN_UP', payload: user })
+    .then({ type: 'SIGN_UP', payload: user })
     }
 } 
 
@@ -47,7 +47,8 @@ export const currentUser = (user)=> {
         .then(r => r.json())
         // set state with user data
         // if no data, user is not logged in
-        .then(r => console.log(r))
+        .then(r => r.json())
+        .then({ type: "FETCH_USER", payload: user})
         .catch(err => console.log(err))
     }
 }

@@ -1,12 +1,16 @@
 const reducer = (state = {}, action) => {
+
     switch (action.type){
-        
-    // case "SIGN_UP":
-    //   return state.concat(action.quote);
+    case "SIGN_UP":
+        return {
+            user: [...state, action]
+        }
     case "LOG_IN":
         return {
-            ...state, action
+        ...state, action
         }
+    case "FETCH_USER":
+        return {user: state.users.filter(user => user.id === action.user.id)}
     // case "DELETE_USER":
     //   return state.filter(user => user.id !== action.user.id)
     // case "LIKE":

@@ -2,12 +2,19 @@ import React, { Component } from 'react'
 import './navbar.css'
 import brew from './brew.png'
 import { MenuItems } from './MenuItems'
+import {connect} from 'react-redux'
 
 class NavBar extends Component {
 
     state = {clicked: false}
 
     // create helper method to check if user is logged in
+    loggedIn = () => {
+
+    }
+
+
+
     handleClick = () => {
         this.setState({ clicked: !this.state.clicked })
     }
@@ -17,6 +24,8 @@ class NavBar extends Component {
             <nav className="navbar-items">
                 <img className="navbar-logo" src={brew} alt="Logo" />
                 {/* not logged in ? display signup/login : search */}
+                {/* { store.getState(user) ? <div></div> : <div></div>} */}
+                
                 <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}></i>
                 </div>
@@ -36,4 +45,9 @@ class NavBar extends Component {
     }
 }
 
-export default NavBar
+const mapStateToProps = state => {
+    // debugger
+    return {user: state.user}
+}   
+
+export default connect(mapStateToProps)(NavBar)

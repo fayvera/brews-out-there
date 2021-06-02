@@ -46,7 +46,10 @@ class UserContainer extends Component {
 // mapStateToProps to keep track of current state
 
 const mapStateToProps = state => {
-
+    // debugger
+    return {
+        user: state.user
+    }
 }
 
 

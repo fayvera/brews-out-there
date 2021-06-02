@@ -34,9 +34,8 @@ class Login extends Component {
             email: this.email, 
             password: this.password
         }
-        
+        debugger
         this.props.login(data)
-
     }
 
 

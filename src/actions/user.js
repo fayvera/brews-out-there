@@ -9,6 +9,7 @@ export const login = (data = {}) => {
             body: JSON.stringify({ data })    
         })
         .then(r=> r.json())
+        .then(console.log)
         .then(res => {localStorage.setItem('token', res.data.token)})
         .then({ type: "LOG_IN", payload: data})
         .catch(err => console.log(err))
@@ -41,7 +42,7 @@ export const logout = () => {
     }
 }
 
-export const currentUser = (user)=> {
+export const currentUser = (user) => {
     return function(dispatch) {
         fetch(`http://localhost:300/api/user/${user.id}`)
         .then(r => r.json())

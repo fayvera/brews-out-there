@@ -3,11 +3,13 @@ const reducer = (state = {}, action) => {
     switch (action.type){
     case "SIGN_UP":
         return {
-            user: [...state, action]
+            ...state, 
+            user: action.payload.user
         }
     case "LOG_IN":
         return {
-        ...state, action
+            ...state, 
+            user: action.payload.user
         }
     case "FETCH_USER":
         return {user: state.users.filter(user => user.id === action.user.id)}

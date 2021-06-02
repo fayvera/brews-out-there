@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SignUp from './UserSignUp';
 import Login from './UserLogin'
 import {Route, Switch} from 'react-router-dom'
-import {currentUser} from '../actions/user.js'
+import {currentUser, login, signup} from '../actions/user.js'
 import { connect } from 'react-redux';
 
 class UserContainer extends Component {
@@ -53,4 +53,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, {currentUser})(UserContainer)
+export default connect(mapStateToProps, { currentUser, login, signup})(UserContainer)

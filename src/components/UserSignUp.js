@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { signup } from '../actions/user.js'
 
 class SignUp extends Component {
     constructor(){
@@ -35,7 +36,7 @@ class SignUp extends Component {
     render(){
         return(
             <div className='signup'>
-                <form className="signup_form">
+                <form className="signup_form" onSubmit={this.handleSubmit}>
                     <h1>Sign Up</h1>
                     <input name="name"
                     type="text" 
@@ -57,10 +58,10 @@ class SignUp extends Component {
                     <input 
                     type="password" 
                     placeholder="Confirm Password"
-                    name="password"
+                    name="confirmPassword"
                     value={this.state.confirmPassword}
                     onChange={this.handleChange}/><br></br>
-                    <button type="submit" className="submit__btn" onSubmit={this.handleSubmit}>Sign Up</button>
+                    <button type="submit" className="submit__btn" >Sign Up</button>
                 </form>
             </div>
         )
@@ -69,8 +70,8 @@ class SignUp extends Component {
 
 const mapStateToProps = state => {
     return {
-        
+        user: state.user
     }
 }
 
-export default connect(mapStateToProps)(SignUp)
+export default connect(mapStateToProps, {signup})(SignUp)

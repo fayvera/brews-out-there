@@ -25,9 +25,9 @@ export const signup = (user = {}) => {
             body: JSON.stringify({user})    
         })
         .then(console.log)
+        .then(r => r.json())
+        .then({ type: 'SIGN_UP', payload: user })
         .catch(err => console.log(err))
-    // .then(r => r.json())
-    .then({ type: 'SIGN_UP', payload: user })
     }
 } 
 
@@ -44,7 +44,7 @@ export const logout = () => {
 
 export const currentUser = (user) => {
     return function(dispatch) {
-        fetch(`http://localhost:300/api/user/${user.id}`)
+        fetch(`http://localhost:3000/api/user/${user.id}`)
         .then(r => r.json())
         // set state with user data
         // if no data, user is not logged in

@@ -1,4 +1,4 @@
-const reducer = (state = {}, action) => {
+const reducer = (state = {user: {}}, action) => {
 
     switch (action.type){
     case "SIGN_UP":

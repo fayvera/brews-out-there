@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom'
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
+import {composeWithDevTools} from 'redux-devtools-extension'
 import thunk from 'redux-thunk';
 import userReducer from './reducers/userReducer'
 
@@ -18,7 +19,7 @@ import userReducer from './reducers/userReducer'
 // })
 // const history = syncHistoryWithStore(browserHistory, store)
 
-const store = createStore(userReducer, applyMiddleware(thunk))
+const store = createStore(userReducer,compose(applyMiddleware(thunk), composeWithDevTools()))
 
 
 ReactDOM.render(

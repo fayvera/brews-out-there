@@ -17,8 +17,10 @@ class SignUp extends Component {
         this.setState({
             [event.target.name]: event.target.value
         })
-
     }
+
+    
+    
     handleSubmit = event => {
         event.preventDefault();
 
@@ -28,6 +30,7 @@ class SignUp extends Component {
             )
             this.setState({confirmPassword: ''})
         } else {
+            debugger
             // complete signup
         }
     }

@@ -17,12 +17,14 @@ class UserContainer extends Component {
                 Authorization: 'Bearer ' + localStorage.getItem('token')
             }
         }
+        // if state is not empty, 
+
         this.props.currentUser(config)
         // set state to user info from action "currentUser"
     }
 
     handleSignIn = () => {
-
+        
     }
 
     render(){
@@ -47,7 +49,7 @@ class UserContainer extends Component {
 // mapStateToProps to keep track of current state
 
 const mapStateToProps = state => {
-    debugger
+    // debugger
     return {
         user: state.user
     }

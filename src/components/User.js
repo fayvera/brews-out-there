@@ -8,7 +8,7 @@ export default function User(props){
     return (
         console.log(currentUser)
         // <>
-        //     <h1>Welcome, {currentUser.user.name}</h1>
+        //     <h1>Welcome, {this.props.user.name}</h1>
         // </>
     )
 } 

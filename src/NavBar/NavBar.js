@@ -10,12 +10,35 @@ class NavBar extends Component {
 
     // create helper method to check if user is logged in
     loggedIn = () => {
-
+        console.log(this.props.user == {})
+        if(Object.keys(this.props.user).length === 0){
+            return (
+            <p> Login</p>)
+        } else {
+            return(<>
+                <div className="menu-icon" onClick={this.handleClick}>
+                <i className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}></i>
+            </div>
+            <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
+                {MenuItems.map((item, index) => {
+                  return(
+                    <li key={index}>
+                        <a className={item.cName} href={item.url}>
+                            {item.title}    
+                        </a>
+                    </li>
+                    )
+                })}
+            </ul>
+            </>
+            )
+        }
     }
 
 
 
     handleClick = () => {
+        // debugger
         this.setState({ clicked: !this.state.clicked })
     }
 
@@ -23,23 +46,9 @@ class NavBar extends Component {
         return(
             <nav className="navbar-items">
                 <img className="navbar-logo" src={brew} alt="Logo" />
-                {/* not logged in ? display signup/login : search */}
-                {/* { store.getState(user) ? <div></div> : <div></div>} */}
-                
-                <div className="menu-icon" onClick={this.handleClick}>
-                    <i className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}></i>
-                </div>
-                <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
-                    {MenuItems.map((item, index) => {
-                      return(
-                        <li key={index}>
-                            <a className={item.cName} href={item.url}>
-                                {item.title}    
-                            </a>
-                        </li>
-                        )
-                    })}
-                </ul>
+
+                    {this.loggedIn()}
+
             </nav>
         )
     }

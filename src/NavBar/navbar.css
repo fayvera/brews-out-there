@@ -35,6 +35,14 @@
       /* justify-content: end;
       margin-right: 2rem; */
   }
+  .navbar-menu{
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 10px;
+    justify-content: end;
+    margin-right: 2rem;
+    list-style: none;
+  }
 
   .nav-menu.active {
       background: #6668f4;
@@ -57,7 +65,14 @@
       font-size: 1.5rem;
   }
 
-  .nav-links:hover {
+  .navbar-access{
+      text-decoration: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-align: end;
+  }
+
+  .nav-links:hover, .navbar-access:hover {
     background-color: #6d76f7;
     border-radius: 4px;
     transition: all 0.2s ease-out;

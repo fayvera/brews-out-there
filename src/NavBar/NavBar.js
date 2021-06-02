@@ -14,7 +14,7 @@ class NavBar extends Component {
         console.log(this.props.user == {})
         if(Object.keys(this.props.user).length === 0){
             return (
-            <div>
+            <div className="navbar-menu">
                 {Access.map((item, index) => {
                     return(
                         <li key={index}>

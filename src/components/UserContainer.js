@@ -4,6 +4,7 @@ import Login from './UserLogin'
 import {Route, Switch} from 'react-router-dom'
 import {currentUser, login, signup} from '../actions/user.js'
 import { connect } from 'react-redux';
+import User from './User'
 
 class UserContainer extends Component {
 
@@ -46,7 +47,7 @@ class UserContainer extends Component {
 // mapStateToProps to keep track of current state
 
 const mapStateToProps = state => {
-    // debugger
+    debugger
     return {
         user: state.user
     }

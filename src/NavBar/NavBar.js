@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import './navbar.css'
 import brew from './brew.png'
-import { MenuItems } from './MenuItems'
+import { MenuItems, Access} from './MenuItems'
 import {connect} from 'react-redux'
+import Login from '../components/UserLogin'
 
 class NavBar extends Component {
 
@@ -13,7 +14,18 @@ class NavBar extends Component {
         console.log(this.props.user == {})
         if(Object.keys(this.props.user).length === 0){
             return (
-            <p> Login</p>)
+            <div>
+                {Access.map((item, index) => {
+                    return(
+                        <li key={index}>
+                            <a className={item.cName} href={item.url}>
+                                {item.title}
+                            </a>
+                        </li>
+                    )
+                })}
+            </div>
+            )
         } else {
             return(<>
                 <div className="menu-icon" onClick={this.handleClick}>
@@ -46,9 +58,7 @@ class NavBar extends Component {
         return(
             <nav className="navbar-items">
                 <img className="navbar-logo" src={brew} alt="Logo" />
-
                     {this.loggedIn()}
-
             </nav>
         )
     }

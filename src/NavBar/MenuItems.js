@@ -11,3 +11,15 @@ export const MenuItems = [
     },
 ]
 
+export const Access = [
+    {
+        title: "Log In",
+        url: '/login',
+        cName: 'navbar-access'
+    },
+    {
+        title: "Sign Up",
+        url: "/signup",
+        cName: 'navbar-access'
+    }
+] 

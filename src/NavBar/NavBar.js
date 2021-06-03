@@ -4,7 +4,8 @@ import brew from './brew.png'
 import { MenuItems, Access} from './MenuItems'
 import {connect} from 'react-redux'
 // import Login from '../components/UserLogin'
-import { withRouter } from "react-router";
+import { withRouter} from "react-router";
+import { Link } from "react-router-dom";
 
 class NavBar extends Component {
 
@@ -29,9 +30,9 @@ class NavBar extends Component {
                 {Access.map((item, index) => {
                     return(
                         <li key={index}>
-                            <a className={item.cName} href={item.url}>
+                            <Link className={item.cName} to={item.url}>
                                 {item.title}
-                            </a>
+                            </Link>
                         </li>
                     )
                 })}
@@ -46,9 +47,9 @@ class NavBar extends Component {
                 {MenuItems.map((item, index) => {
                   return(
                     <li key={index}>
-                        <a className={item.cName} onClick={this.handleSelection} href={item.url}>
+                        <Link className={item.cName} to={item.url}>
                             {item.title}    
-                        </a>
+                        </Link>
                     </li>
                     )
                 })}
@@ -67,7 +68,7 @@ class NavBar extends Component {
     render(){
         return(
             <nav className="navbar-items">
-                <img className="navbar-logo" src={brew} alt="Logo" href="/ " onClick={this.handleSelection}/>
+                <img className="navbar-logo" src={brew} alt="Logo" href="/" onClick={this.handleSelection}/>
                     {this.loggedIn()}
             </nav>
         )
@@ -75,7 +76,6 @@ class NavBar extends Component {
 }
 
 const mapStateToProps = state => {
-    // debugger
     return {user: state.user}
 }   
 

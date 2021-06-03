@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { logout } from '../../actions/user.js'
 // import User from './User'
 import { withRouter } from "react-router";
@@ -7,21 +7,18 @@ import { withRouter } from "react-router";
 
 class Logout extends Component {
 
-    appLogout(){
+    handleLogout(){
         debugger
 
         this.props.logout()
-        this.setState({
-            user: {}
-        })
         localStorage.clear();
-        window.location.href = '/';
+        this.props.history.push("/")
     }
 
     render(){
         return(
             <div>
-                {this.appLogout()}
+                {this.handleLogout()}
             </div>
         )
     }
@@ -30,4 +27,4 @@ class Logout extends Component {
 }
 
 
-export default withRouter(Logout)
+export default withRouter(connect(null, { logout })(Logout))

@@ -1,22 +1,33 @@
-import React from 'react'
+import React, { Component } from 'react'
+import fetchBreweries from '../actions/fetchBreweries'
 
-const Search = () => {
+class Search extends Component {
 
-//    const handleSubmit = event => {
-//         event.preventDefault();
+    // search by location/zipcode/
 
-//     }
-
-    return(
-        <div>
-            <form onSubmit={this.handleSubmit}>
-                <input type="text" placeholder="Search by location"/><br></br>
-                <input type="submit"  />
-            </form>
-        </div>
+    handleSubmit = event => {
+        event.preventDefault();
+        // look through breweries
+        // fetchBreweries(event)
+    }
     
-    )
-    
+    handleChange = () => {
+        // this.
+    }
+
+    render(){
+        return(
+            <div>
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" 
+                    name="input"
+                    placeholder="Search by location"
+                    onChange={this.handleChange}/><br></br>
+                    <input type="submit"  />
+                </form>
+            </div>
+        )   
+    }
 }
 
 export default Search

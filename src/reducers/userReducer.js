@@ -17,7 +17,7 @@ const reducer = (state = {user: {}}, action) => {
     case "LOG_OUT":
         return {
             ...state,
-            user: null
+            user: {}
         }
     // case "DELETE_USER":
     //   return state.filter(user => user.id !== action.user.id)

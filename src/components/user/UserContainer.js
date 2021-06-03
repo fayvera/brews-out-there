@@ -24,7 +24,6 @@ class UserContainer extends Component {
     }
 
     isLoggedIn = () => {
-        // debugger
         if(Object.keys(this.props.user) === [] || 'message'){
         // if((Object.keys(this.props.user.message) === "Please log in" )|| (Object.keys(this.props.user).length === 0)) {
         // if (Object.keys(this.props.user).length === 0){

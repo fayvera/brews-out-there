@@ -1,0 +1,11 @@
+- when redirecting, replacing a url instead of adding it on to the current one 
+-logout
+-handle login/logout credentials
+- once user signs up, redirect to showpage
+-include welcome message
+
+
+
+- brewery fetch
+- search bar (by location/zip code/ )
+- google maps api

@@ -27,6 +27,7 @@ class UserContainer extends Component {
                 <>
                     <Route path="/signup" component={SignUp} />
                     <Route path="/login" component={Login} />
+                    <Route path ="/favorite"/>
                 </>
                 )
             } else {

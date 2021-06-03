@@ -9,26 +9,28 @@ import User from './components/User'
 
 
 class App extends React.Component{
-// helper functions
 
-
-// no need for local state 
-  // constructor(){
-  //   super();
-  // }
-
-  // NavBar and Routes
+  loggedIn = () => {
+    if(Object.keys(this.props.user).length === 0){
+      // debugger
+      return(
+        <>  
+          <Route path="/home" component={User} />
+          <Route path="/breweries" component={BreweriesContainer} />
+        </>
+      )
+    }
+  }
+  
   render(){ 
     return(
       <div>
         <NavBar />
+        {this.loggedIn()}
         <UserContainer />
-          <Route path="/home">
-            <User />
-          </Route>
-          <Route path="/breweries">
-            <BreweriesContainer />
-          </Route>
+          {/* <Route path="/home" component={User} />
+          <Route path="/breweries" component={BreweriesContainer} /> */}
+        
       </div>
     )
   }

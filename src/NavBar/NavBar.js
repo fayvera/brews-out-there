@@ -3,7 +3,8 @@ import './navbar.css'
 import brew from './brew.png'
 import { MenuItems, Access} from './MenuItems'
 import {connect} from 'react-redux'
-import Login from '../components/UserLogin'
+// import Login from '../components/UserLogin'
+import { withRouter } from "react-router";
 
 class NavBar extends Component {
 
@@ -11,6 +12,11 @@ class NavBar extends Component {
 
     handleSelection = e => {
         e.preventDefault()
+        debugger
+        this.props.history.push(`/${e.target.href}`)
+        this.setState({
+            clicked: !this.state.clicked
+        })
     }
 
     loggedIn = () => {
@@ -31,13 +37,13 @@ class NavBar extends Component {
         } else {
             return(<>
                 <div className="menu-icon" onClick={this.handleClick}>
-                <i className={this.state.clicked ? "fas fa-times" : "fas fa-bars"} onClick={this.handleSelection}></i>
+                <i className={this.state.clicked ? "fas fa-times" : "fas fa-bars"} ></i>
             </div>
             <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
                 {MenuItems.map((item, index) => {
                   return(
                     <li key={index}>
-                        <a className={item.cName} href={item.url}>
+                        <a className={item.cName} onClick={this.handleSelection} href={item.url}>
                             {item.title}    
                         </a>
                     </li>
@@ -59,7 +65,7 @@ class NavBar extends Component {
     render(){
         return(
             <nav className="navbar-items">
-                <img className="navbar-logo" src={brew} alt="Logo" />
+                <img className="navbar-logo" src={brew} alt="Logo" href="/" onClick={this.handleSelection}/>
                     {this.loggedIn()}
             </nav>
         )
@@ -71,4 +77,4 @@ const mapStateToProps = state => {
     return {user: state.user}
 }   
 
-export default connect(mapStateToProps)(NavBar)
+export default withRouter(connect(mapStateToProps)(NavBar))

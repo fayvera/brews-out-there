@@ -48,8 +48,6 @@ export const currentUser = (user) => {
     return function(dispatch) {
         fetch(`http://localhost:3000/api/user/${user.id}`)
         .then(r => r.json())
-        // set state with user data
-        // if no data, user is not logged in
         .then({ type: "FETCH_USER", payload: user})
         .catch(err => console.log(err))
     }

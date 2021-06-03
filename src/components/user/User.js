@@ -1,5 +1,5 @@
 import React from 'react'
-import { currentUser } from '../actions/user.js'
+import { currentUser } from '../../actions/user.js'
 
 
 export default function User(){

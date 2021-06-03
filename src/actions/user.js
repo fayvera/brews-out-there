@@ -44,11 +44,11 @@ export const logout = () => {
     }
 }
 
-export const currentUser = (user) => {
+export const currentUser = (config) => {
     return function(dispatch) {
-        fetch(`http://localhost:3000/api/user/${user.id}`)
+        fetch(`http://localhost:3000/api/users/currentuser`, config)
         .then(r => r.json())
-        .then({ type: "FETCH_USER", payload: user})
+        .then(res => dispatch({ type: "FETCH_USER", payload: res}))
         .catch(err => console.log(err))
     }
 }

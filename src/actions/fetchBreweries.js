@@ -27,13 +27,13 @@
 // }
 
 
-export default function fetchBreweries() {
+export default function fetchBreweries(data) {
     return function(dispatch) {
         // get API endpoint
         // API Key: 146b43ffb6327bc038cfa22b17dc71ac
         fetch('https://api.openbrewerydb.org/breweries')
         .then(r => r.json())
         .then(console.log)
-        // .then(data => dispatch({type: "FETCH_BREWERIES", payload: data}))
+        .then(data => dispatch({type: "FETCH_BREWERIES", payload: data}))
     }
 }

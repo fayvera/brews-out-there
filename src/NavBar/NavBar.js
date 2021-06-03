@@ -12,10 +12,14 @@ class NavBar extends Component {
 
     handleSelection = e => {
         e.preventDefault()
+
+        // adding on the url instead of replacing it
         this.props.history.push(`/${e.target.href}`)
-        this.setState({
-            clicked: !this.state.clicked
-        })
+        if(e.target.className !== "navbar-logo"){
+            this.setState({
+                clicked: !this.state.clicked
+            })
+        }
     }
 
     loggedIn = () => {

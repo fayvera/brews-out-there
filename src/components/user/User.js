@@ -4,13 +4,13 @@ import { currentUser } from '../../actions/user.js'
 
 export default function User(){
 
-    // debugger 
-    console.log(currentUser.name)        
-    
+
+        //   search bar goes here 
+        console.log()
     
     return (
         <div>
-            <h1>Welcome</h1>
+            <h1>Welcome {currentUser.payload}</h1>
 
         </div>
 

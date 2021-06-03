@@ -5,6 +5,7 @@ import User from './User'
 import {Route, Switch} from 'react-router-dom'
 import {currentUser, login, signup} from '../../actions/user.js'
 import { connect } from 'react-redux';
+import Favorites from './UserFavorites'
 // import User from './User'
 
 class UserContainer extends Component {
@@ -16,7 +17,9 @@ class UserContainer extends Component {
         const config = {
             headers: {
                 Authorization: 'Bearer ' + localStorage.getItem('token')
-            }
+            },
+            credentials: "include",
+            method: "GET"
         }
         this.props.currentUser(config)
     }
@@ -33,7 +36,7 @@ class UserContainer extends Component {
                 return(
                     <div>
                         <Route path="/home" component={User} />
-                        <Route path ="/favorite"/>
+                        <Route path ="/favorite" component={Favorites}/>
                     </div>
                     )
                 }

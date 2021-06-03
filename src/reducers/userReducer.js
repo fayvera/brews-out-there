@@ -1,5 +1,5 @@
 const reducer = (state = {user: {}}, action) => {
-
+    console.log(action)
     switch (action.type){
     case "SIGN_UP":
         debugger
@@ -13,7 +13,7 @@ const reducer = (state = {user: {}}, action) => {
             user: action.payload.user
         }
     case "FETCH_USER":
-        return {user: state.users.filter(user => user.id === action.user.id)}
+        return {user: action.payload}
     case "LOG_OUT":
         return {
             ...state,

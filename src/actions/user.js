@@ -1,22 +1,24 @@
 
-export const login = (data = {}) => {
+export const login = (data) => {
     return function(dispatch){
         fetch('http://localhost:3000/api/auth', { 
             method: 'POST',
             headers: {'Content-Type': 'application/json',
                       'Accept': 'application/json'},
             credentials: 'include',
-            body: JSON.stringify({ data })    
+            body: JSON.stringify({ ...data })    
         })
-        .then(r=> r.json())
-        .then(console.log)
-        .then(res => {localStorage.setItem('token', res.data.token)})
-        .then({ type: "LOG_IN", payload: data})
+        .then(r => r.json())
+        .then(res => {
+            dispatch({ type: "LOG_IN", payload: res})
+            localStorage.setItem('token', res.data.token)
+        })
         .catch(err => console.log(err))
     }
 }
 
-export const signup = (user = {}) => {
+export const signup = (user) => {
+    debugger
     return function(dispatch) {
         fetch('http://localhost:3000/api/users', { 
             method: 'POST',
@@ -53,3 +55,11 @@ export const currentUser = (user) => {
         .catch(err => console.log(err))
     }
 }
+
+// export const allUsers = () => {
+//     return function(dispatch){
+//         fetch('http://localhost:3000/api/users')
+//         .then(r => r.json())
+//         .then({ type: "ALL_USERS", payload: user})
+//     }
+// }

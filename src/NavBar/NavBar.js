@@ -9,9 +9,11 @@ class NavBar extends Component {
 
     state = {clicked: false}
 
-    // create helper method to check if user is logged in
+    handleSelection = e => {
+        e.preventDefault()
+    }
+
     loggedIn = () => {
-        console.log(this.props.user == {})
         if(Object.keys(this.props.user).length === 0){
             return (
             <div className="navbar-menu">
@@ -29,7 +31,7 @@ class NavBar extends Component {
         } else {
             return(<>
                 <div className="menu-icon" onClick={this.handleClick}>
-                <i className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}></i>
+                <i className={this.state.clicked ? "fas fa-times" : "fas fa-bars"} onClick={this.handleSelection}></i>
             </div>
             <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
                 {MenuItems.map((item, index) => {

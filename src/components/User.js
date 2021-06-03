@@ -2,13 +2,17 @@ import React from 'react'
 import { currentUser } from '../actions/user.js'
 
 
-export default function User(props){
+export default function User(){
 
-
+    console.log(currentUser)        
+    
+    
     return (
-        console.log(currentUser)
+        <div>
+
+        </div>
         // <>
-        //     <h1>Welcome, {this.props.user.name}</h1>
+        //     {/* <h1>Welcome, {this.props.user.name}</h1> */}
         // </>
     )
 } 

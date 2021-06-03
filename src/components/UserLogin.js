@@ -1,15 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../actions/user.js'
-
-
-//     handleLogin = event => {
-//         event.preventDefault()
-//         // authenticate
-//         // change state loggedIn to true
-//     }
-
-
+import User from './User'
+import { withRouter } from "react-router";
 
 
 class Login extends Component {
@@ -28,14 +21,24 @@ class Login extends Component {
         })
     }
     
+
     handleSubmit = e => {
         e.preventDefault()
         const data = {
-            email: this.email, 
-            password: this.password
+            email: this.state.email, 
+            password: this.state.password
         }
-        debugger
+        // check credentials
         this.props.login(data)
+
+        if(Object.keys(this.props.user)){
+            this.props.history.push('/home')
+        } else {
+            // didn't properly log in 
+            alert(
+                "Something went wrong!"
+            )
+        }
     }
 
 
@@ -71,4 +74,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, {login})(Login)
+export default withRouter(connect(mapStateToProps, {login} )(Login))

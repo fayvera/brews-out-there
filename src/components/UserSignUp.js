@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { signup } from '../actions/user.js'
+import User from './User'
 
 class SignUp extends Component {
     constructor(){
@@ -19,7 +20,10 @@ class SignUp extends Component {
         })
     }
 
-    
+    handleCredentials = () => {
+        // look through all users in database. If email matches, user is not valid
+        // if( this.state.email )
+    }
     
     handleSubmit = event => {
         event.preventDefault();
@@ -29,9 +33,20 @@ class SignUp extends Component {
                 "Passwords don't match!"
             )
             this.setState({confirmPassword: ''})
+        } else if (this.state.password === ""){
+            alert (
+                "Please create a password!"
+            )
         } else {
+            const user = {
+                name: this.state.name,
+                email: this.state.email,
+                password: this.state.password
+            }
             debugger
+            this.props.signup(user)
             // complete signup
+
         }
     }
     

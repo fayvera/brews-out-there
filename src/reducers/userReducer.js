@@ -2,6 +2,7 @@ const reducer = (state = {user: {}}, action) => {
 
     switch (action.type){
     case "SIGN_UP":
+        debugger
         return {
             ...state, 
             user: action.payload.user

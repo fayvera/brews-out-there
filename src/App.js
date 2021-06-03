@@ -5,6 +5,7 @@ import BreweriesContainer from './components/BreweriesContainer'
 import NavBar from './NavBar/NavBar'
 import UserContainer from './components/UserContainer'
 import {connect} from 'react-redux'
+import User from './components/User'
 
 
 class App extends React.Component{
@@ -22,6 +23,9 @@ class App extends React.Component{
       <div>
         <NavBar />
         <UserContainer />
+          <Route path="/home">
+            <User />
+          </Route>
           <Route path="/breweries">
             <BreweriesContainer />
           </Route>

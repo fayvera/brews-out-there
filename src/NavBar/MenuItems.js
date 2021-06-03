@@ -1,14 +1,22 @@
 export const MenuItems = [
     {
         title: "Home",
-        url: "#",
+        url: "/home",
         cName: 'nav-links'
     },
     {
-        title: "Menu",
+        title: "My Favorites",
         url: '#',
+        // create favorite page
         cName: 'nav-links'
     },
+    {
+        title: "Log Out",
+        url: '/',
+        // what url for logging out
+        cName: 'nav-links'
+        
+    }
 ]
 
 export const Access = [

@@ -4,7 +4,7 @@ import Login from './UserLogin'
 import {Route, Switch} from 'react-router-dom'
 import {currentUser, login, signup} from '../actions/user.js'
 import { connect } from 'react-redux';
-import User from './User'
+// import User from './User'
 
 class UserContainer extends Component {
 
@@ -17,7 +17,6 @@ class UserContainer extends Component {
                 Authorization: 'Bearer ' + localStorage.getItem('token')
             }
         }
-
         this.props.currentUser(config)
     }
 
@@ -36,9 +35,9 @@ class UserContainer extends Component {
                         <Login />
                     </Route>
                     {/* create buttons for login and signup */}
-                    <button className="login" onClick={this.handleSignIn}>Log In</button><br>
+                    {/* <button className="login" onClick={this.handleSignIn}>Log In</button><br>
                     </br>
-                    <button className="signup">Sign Up</button>
+                    <button className="signup">Sign Up</button> */}
                 </Switch>
             </div>
         )

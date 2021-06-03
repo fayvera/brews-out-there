@@ -27,13 +27,13 @@ class UserContainer extends Component {
                 <>
                     <Route path="/signup" component={SignUp} />
                     <Route path="/login" component={Login} />
-                    <Route path ="/favorite"/>
                 </>
                 )
             } else {
                 return(
                     <div>
                         <Route path="/home" component={User} />
+                        <Route path ="/favorite"/>
                     </div>
                     )
                 }
@@ -56,10 +56,8 @@ class UserContainer extends Component {
         )
     }
 }
-// mapStateToProps to keep track of current state
 
 const mapStateToProps = state => {
-    // debugger
     return {
         user: state.user
     }

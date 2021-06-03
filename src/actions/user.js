@@ -11,7 +11,7 @@ export const login = (data) => {
         .then(r => r.json())
         .then(res => {
             dispatch({ type: "LOG_IN", payload: res})
-            localStorage.setItem('token', res.data.token)
+            localStorage.setItem('token', res.jwt)
         })
         .catch(err => console.log(err))
     }

@@ -4,7 +4,7 @@ import { currentUser } from '../../actions/user.js'
 
 export default function User(){
 
-    debugger 
+    // debugger 
     console.log(currentUser.name)        
     
     

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SignUp from './UserSignUp';
 import Login from './UserLogin'
+import User from './User'
 import {Route, Switch} from 'react-router-dom'
 import {currentUser, login, signup} from '../../actions/user.js'
 import { connect } from 'react-redux';
@@ -20,24 +21,35 @@ class UserContainer extends Component {
         this.props.currentUser(config)
     }
 
-    handleSignIn = () => {
-
-    }
+    isLoggedIn = () => {
+        if (Object.keys(this.props.user).length === 0){
+            return (
+                <>
+                    <Route path="/signup" component={SignUp} />
+                    <Route path="/login" component={Login} />
+                </>
+                )
+            } else {
+                return(
+                    <div>
+                        <Route path="/home" component={User} />
+                    </div>
+                    )
+                }
+        }   
 
     render(){
         return(
             <div>
                 <Switch>
-                    <Route path="/signup" >
-                        <SignUp />
-                    </Route>
-                    <Route path="/login">
-                        <Login />
-                    </Route>
+                    {/* <Route path="/signup" component={SignUp} />
+                    <Route path="/login" component={Login} /> */}
+             
                     {/* create buttons for login and signup */}
                     {/* <button className="login" onClick={this.handleSignIn}>Log In</button><br>
                     </br>
-                    <button className="signup">Sign Up</button> */}
+                <button className="signup">Sign Up</button> */}
+                    {this.isLoggedIn()}
                 </Switch>
             </div>
         )

@@ -26,11 +26,10 @@ class App extends React.Component{
     return(
       <div>
         <NavBar />
-        {this.loggedIn()}
         <UserContainer />
-          {/* <Route path="/home" component={User} />
-          <Route path="/breweries" component={BreweriesContainer} /> */}
-        
+        {/* {this.loggedIn()} */}
+        <Route path="/home" component={User} />
+        <Route path="/breweries" component={BreweriesContainer} />
       </div>
     )
   }

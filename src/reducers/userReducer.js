@@ -14,6 +14,11 @@ const reducer = (state = {user: {}}, action) => {
         }
     case "FETCH_USER":
         return {user: state.users.filter(user => user.id === action.user.id)}
+    case "LOG_OUT":
+        return {
+            ...state,
+            user: null
+        }
     // case "DELETE_USER":
     //   return state.filter(user => user.id !== action.user.id)
     // case "LIKE":

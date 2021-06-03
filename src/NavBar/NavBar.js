@@ -12,7 +12,6 @@ class NavBar extends Component {
 
     handleSelection = e => {
         e.preventDefault()
-        debugger
         this.props.history.push(`/${e.target.href}`)
         this.setState({
             clicked: !this.state.clicked
@@ -58,7 +57,6 @@ class NavBar extends Component {
 
 
     handleClick = () => {
-        // debugger
         this.setState({ clicked: !this.state.clicked })
     }
 

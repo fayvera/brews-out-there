@@ -26,9 +26,8 @@ export const signup = (user) => {
                       'Accept': 'application/json'},
             body: JSON.stringify({user})    
         })
-        .then(console.log)
         .then(r => r.json())
-        .then({ type: 'SIGN_UP', payload: user })
+        .then(resp => dispatch({ type: 'SIGN_UP', payload: user }))
         .catch(err => console.log(err))
     }
 } 
@@ -40,7 +39,8 @@ export const logout = () => {
             credentials: 'include'
         })
         .then(r => r.json())
-        .then(console.log)
+        .then(r => dispatch({type: 'LOG_OUT', payload: r}))
+        .catch(err => console.log(err))
     }
 }
 
@@ -50,7 +50,6 @@ export const currentUser = (user) => {
         .then(r => r.json())
         // set state with user data
         // if no data, user is not logged in
-        .then(r => r.json())
         .then({ type: "FETCH_USER", payload: user})
         .catch(err => console.log(err))
     }

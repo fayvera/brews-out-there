@@ -11,7 +11,9 @@ import User from './components/user/User'
 class App extends React.Component{
 
   loggedIn = () => {
-    if(Object.keys(this.props.user).length === 0){
+    // debugger
+    if((Object.keys(this.props.user).length !== 1) && (Object.keys(this.props.user) !== 0)){
+    // if(Object.keys(this.props.user).length === 0){
       // debugger
       return(
         <>  
@@ -27,9 +29,9 @@ class App extends React.Component{
       <div>
         <NavBar />
         <UserContainer />
-        {/* {this.loggedIn()} */}
-        <Route path="/home" component={User} />
-        <Route path="/breweries" component={BreweriesContainer} />
+        {this.loggedIn()}
+        {/* <Route path="/home" component={User} />
+        <Route path="/breweries" component={BreweriesContainer} /> */}
       </div>
     )
   }

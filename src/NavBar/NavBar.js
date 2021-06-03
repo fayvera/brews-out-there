@@ -23,7 +23,7 @@ class NavBar extends Component {
     }
 
     loggedIn = () => {
-        if(Object.keys(this.props.user).length === 0){
+        if(Object.keys(this.props.user).length === 0 || (Object.keys(this.props.user).length === 1 )){
             return (
             <div className="navbar-menu">
                 {Access.map((item, index) => {

@@ -3,16 +3,14 @@ import SignUp from './UserSignUp';
 import Login from './UserLogin'
 import User from './User'
 import {Route, Switch} from 'react-router-dom'
-import {currentUser, login, signup} from '../../actions/user.js'
+import {currentUser, login, signup, logout} from '../../actions/user.js'
 import { connect } from 'react-redux';
 import Favorites from './UserFavorites'
 import Logout from './UserLogout'
-// import User from './User'
+
 
 class UserContainer extends Component {
 
-    // if state is empty, user is not logged in
-    
 
     componentDidMount() {
         const config = {
@@ -26,19 +24,26 @@ class UserContainer extends Component {
     }
 
     isLoggedIn = () => {
-        if (Object.keys(this.props.user).length === 0){
+        // debugger
+        if(Object.keys(this.props.user) === [] || 'message'){
+        // if((Object.keys(this.props.user.message) === "Please log in" )|| (Object.keys(this.props.user).length === 0)) {
+        // if (Object.keys(this.props.user).length === 0){
             return (
                 <>
+                <Switch>
                     <Route path="/signup" component={SignUp} />
                     <Route path="/login" component={Login} />
+                </Switch>
                 </>
                 )
             } else {
                 return(
                     <div>
-                        <Route path="/home" component={User} />
-                        <Route path ="/favorite" component={Favorites}/>
-                        <Route path="/logout" component={Logout} />
+                        <Switch>
+                            <Route path="/home" component={User} />
+                            <Route path ="/favorite" component={Favorites}/>
+                            <Route path="/logout" component={Logout} />
+                        </Switch>
                     </div>
                     )
                 }
@@ -47,16 +52,7 @@ class UserContainer extends Component {
     render(){
         return(
             <div>
-                <Switch>
-                    {/* <Route path="/signup" component={SignUp} />
-                    <Route path="/login" component={Login} /> */}
-             
-                    {/* create buttons for login and signup */}
-                    {/* <button className="login" onClick={this.handleSignIn}>Log In</button><br>
-                    </br>
-                <button className="signup">Sign Up</button> */}
-                    {this.isLoggedIn()}
-                </Switch>
+                {this.isLoggedIn()}
             </div>
         )
     }
@@ -69,4 +65,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { currentUser, login, signup})(UserContainer)
+export default connect(mapStateToProps, { currentUser, login, signup, logout})(UserContainer)

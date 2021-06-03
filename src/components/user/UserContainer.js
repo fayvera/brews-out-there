@@ -6,6 +6,7 @@ import {Route, Switch} from 'react-router-dom'
 import {currentUser, login, signup} from '../../actions/user.js'
 import { connect } from 'react-redux';
 import Favorites from './UserFavorites'
+import Logout from './UserLogout'
 // import User from './User'
 
 class UserContainer extends Component {
@@ -37,6 +38,7 @@ class UserContainer extends Component {
                     <div>
                         <Route path="/home" component={User} />
                         <Route path ="/favorite" component={Favorites}/>
+                        <Route path="/logout" component={Logout} />
                     </div>
                     )
                 }

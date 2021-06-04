@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Search from './search'
+import Search from '../search'
 import Breweries from './Breweries'
 // import { connect } from 'react-redux';
-import fetchBreweries from '../actions/fetchBreweries'
+import fetchBreweries from '../../actions/fetchBreweries'
 
 class BreweriesContainer extends Component{
     constructor(){

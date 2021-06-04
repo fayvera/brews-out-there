@@ -1,5 +1,5 @@
+NOT PERSISTING USER WHEN PAGE REFRESHES
 
--logout
 -handle login/logout credentials
 - once user signs up, redirect to showpage
 -include welcome message

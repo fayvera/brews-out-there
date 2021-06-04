@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 // import Login from '../components/UserLogin'
 import { withRouter} from "react-router";
 import { Link } from "react-router-dom";
+// import { View, Image } from 'react-native';
 
 class NavBar extends Component {
 
@@ -20,8 +21,8 @@ class NavBar extends Component {
     }
     handleSelection = e => {
         e.preventDefault()
-        debugger
-        this.props.history.push(`/${e.target.href}`)
+        // debugger
+        this.props.history.push('/about')
         this.handleMenu(e)
     }
 
@@ -72,9 +73,7 @@ class NavBar extends Component {
     render(){
         return(
             <nav className="navbar-items">
-                <div to="/about" onClick={this.handleSelection} >
-                    <img className="navbar-logo" src={brew} alt="Logo" />
-                </div>
+                    <img className="navbar-logo" src={brew} alt="Logo" onClick={this.handleSelection} />
                     {this.loggedIn()}
             </nav>
         )

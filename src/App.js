@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
-import BreweriesContainer from './components/BreweriesContainer'
+import BreweriesContainer from './components/brews/BreweriesContainer'
 import NavBar from './NavBar/NavBar'
 import UserContainer from './components/user/UserContainer'
 import {connect} from 'react-redux'

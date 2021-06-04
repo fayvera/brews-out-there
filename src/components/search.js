@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import fetchBreweries from '../actions/fetchBreweries'
+import Map from './GoogleMap'
 
 class Search extends Component {
     constructor(){
@@ -29,9 +30,11 @@ class Search extends Component {
                     <input type="text" 
                     name="input"
                     placeholder="Search by location"
-                    onChange={this.handleChange}/><br></br>
-                    <input type="submit"  />
+                    onChange={this.handleChange}/>
+                    <i class="fas fa-beer" type="submit" onSubmit={this.handleSubmit}></i>
+                    {/* <input type="submit"  /> */}
                 </form>
+                <Map />
             </div>
         )   
     }

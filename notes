@@ -9,7 +9,13 @@ NOT PERSISTING USER WHEN PAGE REFRESHES
 - brewery fetch
 - search bar (by location/zip code/ )
 - add "like" function
-- google maps api
+- google maps api key = AIzaSyABMQjjteXD8zLswMGO4azd8f7rKhT5GM4
 
 
 -complete about and landing page
+
+
+
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABMQjjteXD8zLswMGO4azd8f7rKhT5GM4&callback=initMap"
+  type="text/javascript"></script>

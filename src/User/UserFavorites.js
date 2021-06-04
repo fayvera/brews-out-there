@@ -7,8 +7,8 @@ export default function Favorites(){
     //     // retrieve data from api
     // })
     return(
-        <div classname="usr_favorites">
-            <h1>Your Favorite Places:</h1>
+        <div className="usr_favorites_div">
+            <h1>My Favorite Places:</h1>
         </div>
     )
 }

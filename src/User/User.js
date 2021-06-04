@@ -1,7 +1,7 @@
 import React from 'react'
-import { currentUser } from '../../actions/user.js'
-import Search from '../search'
-import Map from '../GoogleMap'
+import { currentUser } from '../actions/user.js'
+import Search from '../SearchMap/search'
+import Map from '../SearchMap/GoogleMap'
 
 
 export default function User(){

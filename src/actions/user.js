@@ -18,7 +18,6 @@ export const login = (data) => {
 }
 
 export const signup = (user) => {
-    debugger
     return function(dispatch) {
         fetch('http://localhost:3000/api/users', { 
             method: 'POST',

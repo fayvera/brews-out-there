@@ -3,7 +3,7 @@ import SignUp from './UserSignUp';
 import Login from './UserLogin'
 import User from './User'
 import {Route, Switch} from 'react-router-dom'
-import {currentUser, login, signup, logout} from '../../actions/user.js'
+import {currentUser, login, signup, logout} from '../actions/user.js'
 import { connect } from 'react-redux';
 import Favorites from './UserFavorites'
 import Logout from './UserLogout'

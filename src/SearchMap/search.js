@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import fetchBreweries from '../actions/fetchBreweries'
+import {fetchBreweriesType, fetchByCity} from '../actions/fetchBreweries'
 import Map from './GoogleMap'
 import { connect } from 'react-redux';
 import './search.css'
@@ -9,6 +9,9 @@ class Search extends Component {
         super();
         this.state = {
             input: ''
+            // checkboxes: {
+            //     option1: 
+            // }
         }
     }
     // search by location/zipcode/
@@ -18,13 +21,19 @@ class Search extends Component {
         debugger
         // look through breweries
         // fetchBreweries(event)
-        this.props.fetchBreweries(this.state.input)
+        const formatInput = this.state.input.split(' ').join('_')
+        this.props.fetchByCity(formatInput)
     }
     
     handleChange = e => {
+        debugger
         this.setState({
             [e.target.name]: e.target.value
         })
+    }
+
+    handleFilter = e => {
+        
     }
 
     render(){
@@ -33,11 +42,12 @@ class Search extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" 
                     className="search-bar"
-                    name="fInput"
-                    value={this.state.fInput}
+                    name="input"
+                    value={this.state.input}
                     placeholder="Search by location"
                     onChange={this.handleChange}/>
                     <i class="fas fa-search" type="submit" onSubmit={this.handleSubmit}></i>
+                    <i class="fas fa-ellipsis-v" onClick={this.handleFilter}></i>
                 </form>
                 <Map />
             </div>
@@ -46,4 +56,4 @@ class Search extends Component {
 }
 
 
-export default connect(null, {fetchBreweries})(Search)
+export default connect(null, {fetchBreweriesType, fetchByCity})(Search)

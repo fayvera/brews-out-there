@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
-import Search from '../search'
+import Search from '../SearchMap/search'
 import Breweries from './Breweries'
-// import { connect } from 'react-redux';
-import fetchBreweries from '../../actions/fetchBreweries'
+import { connect } from 'react-redux';
+import fetchBreweriesType from '../actions/fetchBreweries'
 
 class BreweriesContainer extends Component{
-    constructor(){
-        super();
-        this.state = {
-            breweries: []
-        }
-    }
+    // constructor(){
+    //     super();
+    //     this.state = {
+    //         breweries: []
+    //     }
+    // }
     
 
     // componentDidMount = () => {
@@ -28,11 +28,11 @@ class BreweriesContainer extends Component{
             <div className="brewery-wrapper">
                 <div className="search-bar"><Search /></div>
                 
-                <Breweries breweries={fetchBreweries}/>
+                <Breweries breweries={fetchBreweriesType}/>
             </div>
         )
     }
 }
 
 
-export default BreweriesContainer;
+export default connect(null, {fetchBreweriesType})(BreweriesContainer);

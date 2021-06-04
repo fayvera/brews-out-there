@@ -2,6 +2,8 @@
 export const fetchByCity = input => {
     return function(dispatch) {
         fetch(`https://api.openbrewerydb.org/?by_city=${input}`)
+        .then(r => r.json())
+        .then(data => dispatch({ type: "FETCH_BREWERIES", payload: data}))
     }
 }
 

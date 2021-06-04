@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Search from '../SearchMap/search'
 import Breweries from './Breweries'
 import { connect } from 'react-redux';
-import fetchBreweriesType from '../actions/fetchBreweries'
+import {fetchBreweriesType} from '../actions/fetchBreweries'
 
 class BreweriesContainer extends Component{
     // constructor(){
@@ -26,9 +26,11 @@ class BreweriesContainer extends Component{
         console.log(this)
         return(
             <div className="brewery-wrapper">
-                <div className="search-bar"><Search /></div>
+                <div className="search-bar">
+                    <Search />
+                </div>
                 
-                <Breweries breweries={fetchBreweriesType}/>
+                <Breweries />
             </div>
         )
     }

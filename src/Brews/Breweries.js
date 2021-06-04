@@ -9,7 +9,7 @@ class Breweries extends Component {
     render(){
         return(
             <div>
-                breweries
+     
             </div>
         )
     }

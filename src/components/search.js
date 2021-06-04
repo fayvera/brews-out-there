@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import fetchBreweries from '../actions/fetchBreweries'
 import Map from './GoogleMap'
+import './search.css'
 
 class Search extends Component {
     constructor(){

@@ -7,34 +7,40 @@ import UserContainer from './components/user/UserContainer'
 import {connect} from 'react-redux'
 import User from './components/user/User'
 import Logout from './components/user/UserLogout'
+import Landing from './Landing'
 import Favorites from './components/user/UserFavorites'
 
 
 class App extends React.Component{
 
+
+  // login functionality is not working 
+
+
   loggedIn = () => {
-    if((Object.keys(this.props.user).length !== 1) && (Object.keys(this.props.user) !== 0)){
+    if (this.props.user !== {} ){
+    // if (Object.keys(this.props.user).length > 1 ){
       return(
         <>  
-          <Route path="/home" component={User} />
-          <Route path="/breweries" component={BreweriesContainer} />
-          <Route path="/favorites" component={Favorites} />
-          <Route path="/logout" component={Logout}/>
+          <Route path="/home" component={ User } />
+          <Route path="/breweries" component={ BreweriesContainer } />
+          <Route path="/favorites" component={ Favorites } />
+          <Route path="/logout" component={ Logout }/>
         </>
       )
-
     } else {
       return(
-        <Redirect to="/" />
+        <Redirect to="/" component={Landing}/>
       )
     }
   }
   
   render(){ 
     return(
-      <div>
+      <div className="main-page">
         <NavBar />
         <UserContainer />
+        {/* <Landing /> */}
         {this.loggedIn()}
         {/* include welcome message */}
       </div>

@@ -11,49 +11,52 @@ class NavBar extends Component {
 
     state = {clicked: false}
 
-    handleSelection = e => {
-        e.preventDefault()
-
-        // adding on the url instead of replacing it
-        this.props.history.push(`/${e.target.href}`)
+    handleMenu = e => {
         if(e.target.className !== "navbar-logo"){
             this.setState({
                 clicked: !this.state.clicked
             })
         }
     }
+    handleSelection = e => {
+        e.preventDefault()
+        this.props.history.push(`/${e.target.href}`)
+        this.handleMenu(e)
+    }
 
     loggedIn = () => {
-        if(Object.keys(this.props.user).length === 0 || (Object.keys(this.props.user).length === 1 )){
+    
+        if(Object.keys(this.props.user).length < 1 ){
             return (
-            <div className="navbar-menu">
-                {Access.map((item, index) => {
+                <div className="navbar-menu">
+                    {Access.map((item, index) => {
+                        return(
+                            <li key={index}>
+                                <Link className={item.cName} to={item.url}>
+                                    {item.title}
+                                </Link>
+                            </li>
+                        )
+                    })}
+                </div>
+                )
+        } else {
+            return(
+            <>
+                <div className="menu-icon" onClick={this.handleClick}>
+                    <i className={this.state.clicked ? "fas fa-times" : "fas fa-bars"} ></i>
+                </div>
+                <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
+                    {MenuItems.map((item, index) => {
                     return(
-                        <li key={index}>
+                        <li key={index} onClick={this.handleMenu}>
                             <Link className={item.cName} to={item.url}>
-                                {item.title}
+                                {item.title}    
                             </Link>
                         </li>
-                    )
-                })}
-            </div>
-            )
-        } else {
-            return(<>
-                <div className="menu-icon" onClick={this.handleClick}>
-                <i className={this.state.clicked ? "fas fa-times" : "fas fa-bars"} ></i>
-            </div>
-            <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
-                {MenuItems.map((item, index) => {
-                  return(
-                    <li key={index}>
-                        <Link className={item.cName} to={item.url}>
-                            {item.title}    
-                        </Link>
-                    </li>
-                    )
-                })}
-            </ul>
+                        )
+                    })}
+                 </ul>
             </>
             )
         }

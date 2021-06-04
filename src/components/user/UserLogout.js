@@ -8,8 +8,6 @@ import { withRouter } from "react-router";
 class Logout extends Component {
 
     handleLogout(){
-        debugger
-
         this.props.logout()
         localStorage.clear();
         this.props.history.push("/")

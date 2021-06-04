@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { signup } from '../../actions/user.js'
 import User from './User'
+import { withRouter } from 'react-router'
 
 class SignUp extends Component {
     constructor(){
@@ -45,8 +46,7 @@ class SignUp extends Component {
             }
             debugger
             this.props.signup(user)
-            // complete signup
-
+            this.props.history.push('/home')
         }
     }
     
@@ -92,4 +92,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {signup})(SignUp)
+export default withRouter(connect(mapStateToProps, {signup})(SignUp))

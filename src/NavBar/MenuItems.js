@@ -7,13 +7,11 @@ export const MenuItems = [
     {
         title: "My Favorites",
         url: '/favorites',
-        // create favorite page
         cName: 'nav-links'
     },
     {
         title: "Log Out",
         url: '/logout',
-        // what url for logging out
         cName: 'nav-links'
         
     }

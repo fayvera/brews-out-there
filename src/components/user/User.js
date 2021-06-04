@@ -10,7 +10,7 @@ export default function User(){
     
     return (
         <div>
-            <h1>Welcome</h1>
+            <h3 className="wlcm-msg">Welcome! Let's find somewhere to go.</h3>
             <div className="search-bar">
                 <Search />
 

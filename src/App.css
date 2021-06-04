@@ -37,3 +37,38 @@
     transform: rotate(360deg);
   }
 }
+
+.wlcm-msg{
+  /* transition: all 3s; */
+  color: white;
+  -webkit-transition: color 1.5s ease-in;
+  /* -moz-transition: color 1.5s ease-out; */
+  /* -o-transition: color 1.5s ease-out; */
+  transition: color 1.5s ease-in;
+}
+
+.wlcm-msg:hover, .wlcm-msg::after{
+  color: black;
+}
+
+.about-info{
+  display: grid;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  text-align: justify;
+  border-color: lightblue;
+  border-radius: 2rem;
+}
+.title-name {
+  font-size: 40px;
+  font-family: 'Signika', sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-p {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}

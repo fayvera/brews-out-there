@@ -14,6 +14,7 @@ class Search extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
+        debugger
         // look through breweries
         // fetchBreweries(event)
     }
@@ -30,11 +31,11 @@ class Search extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" 
                     className="search-bar"
-                    name="input"
+                    name="Finput"
+                    value={this.state.Finput}
                     placeholder="Search by location"
                     onChange={this.handleChange}/>
                     <i class="fas fa-search" type="submit" onSubmit={this.handleSubmit}></i>
-                    {/* <input type="submit"  /> */}
                 </form>
                 <Map />
             </div>

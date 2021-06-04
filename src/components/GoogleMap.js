@@ -19,6 +19,8 @@ export default function Map(){
         libraries
     })
 
+    const [markers, setMarkers] =React.useState([])
+ 
     if(loadError) return 'Error loading maps';
     if(!isLoaded) return "Loading Maps";
     return(
@@ -27,7 +29,18 @@ export default function Map(){
             mapContainerStyle={mapContainerStyle}
             zoom={10}
             center={center}
-            ></GoogleMap>
+            onClick={(event) => {setMarkers(current => [
+                ...current,
+                {
+                    lat: event.latLng.lat(),
+                    lng: event.latLng.lng()
+                }
+            ])}}
+            >
+                {markers.map((marker, index) => (
+                <Marker key={index}
+                position={{lat: marker.lat, lng: marker.lng}}/>))}
+            </GoogleMap>
         </div>
     )
 }

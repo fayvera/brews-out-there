@@ -71,7 +71,7 @@ class NavBar extends Component {
     render(){
         return(
             <nav className="navbar-items">
-                <img className="navbar-logo" src={brew} alt="Logo" href="/" onClick={this.handleSelection}/>
+                <img className="navbar-logo" src={brew} alt="Logo" href="/about" onClick={this.handleSelection}/>
                     {this.loggedIn()}
             </nav>
         )

@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function About(){
-    debugger 
     return(
         <div className="about-info">
             <h1 className="about-title">Brew's Out There</h1>

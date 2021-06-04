@@ -3,10 +3,8 @@ import './navbar.css'
 import brew from './brew.png'
 import { MenuItems, Access} from './MenuItems'
 import {connect} from 'react-redux'
-// import Login from '../components/UserLogin'
 import { withRouter} from "react-router";
 import { Link } from "react-router-dom";
-// import { View, Image } from 'react-native';
 
 class NavBar extends Component {
 
@@ -21,7 +19,6 @@ class NavBar extends Component {
     }
     handleSelection = e => {
         e.preventDefault()
-        // debugger
         this.props.history.push('/about')
         this.handleMenu(e)
     }

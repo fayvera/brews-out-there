@@ -2,7 +2,12 @@ import React, { Component } from 'react'
 import fetchBreweries from '../actions/fetchBreweries'
 
 class Search extends Component {
-
+    constructor(){
+        super();
+        this.state = {
+            input: ''
+        }
+    }
     // search by location/zipcode/
 
     handleSubmit = event => {
@@ -11,8 +16,10 @@ class Search extends Component {
         // fetchBreweries(event)
     }
     
-    handleChange = () => {
-        // this.
+    handleChange = e => {
+        this.setState({
+            input: e.target.value
+        })
     }
 
     render(){

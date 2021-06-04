@@ -21,19 +21,18 @@ class Search extends Component {
         debugger
         // look through breweries
         // fetchBreweries(event)
-        const formatInput = this.state.input.split(' ').join('_')
+        const formatInput = this.state.input.split(' ').join('_').toLocaleLowerCase() 
         this.props.fetchByCity(formatInput)
     }
     
     handleChange = e => {
-        debugger
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
     handleFilter = e => {
-        
+        // can search by city, postal code, state, (or type)
     }
 
     render(){
@@ -46,8 +45,11 @@ class Search extends Component {
                     value={this.state.input}
                     placeholder="Search by location"
                     onChange={this.handleChange}/>
-                    <i class="fas fa-search" type="submit" onSubmit={this.handleSubmit}></i>
-                    <i class="fas fa-ellipsis-v" onClick={this.handleFilter}></i>
+                    <i 
+                    className="fas fa-search" 
+                    type="submit" 
+                    onSubmit={this.handleSubmit}/>
+                    <i className="fas fa-ellipsis-v" onClick={this.handleFilter}></i>
                 </form>
                 <Map />
             </div>

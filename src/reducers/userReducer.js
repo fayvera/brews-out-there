@@ -19,6 +19,11 @@ const reducer = (state = {user: {}}, action) => {
             ...state,
             user: {}
         }
+    // case "UPDATE_USER":
+        
+     
+
+    
     // case "DELETE_USER":
     //   return state.filter(user => user.id !== action.user.id)
     // case "LIKE":

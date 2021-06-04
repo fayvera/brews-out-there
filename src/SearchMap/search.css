@@ -1,15 +1,15 @@
-.fa-search {
-    /* background: lawngreen; */
+.fa-search, .fa-ellipsis-v{
     cursor: pointer;
-    padding: 15px;
-
+    padding: 10px;
 }
 
 .search-bar {
-    padding-left: 2.5rem;
+    padding-left: 1rem;
     border-radius: 2px;
     height: 25px;
-    width: auto;}
+    width: auto;
+}
+
 /* 
 .map-div {
     padding-left: 2.5rem;

@@ -29,8 +29,9 @@ class BreweriesContainer extends Component{
                 <div className="search-bar">
                     <Search />
                 </div>
-                
-                <Breweries />
+                <div className="brewery-div">
+                    <Breweries /> 
+                </div>
             </div>
         )
     }

@@ -29,10 +29,11 @@ class Search extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" 
+                    className="search-bar"
                     name="input"
                     placeholder="Search by location"
                     onChange={this.handleChange}/>
-                    <i class="fas fa-beer" type="submit" onSubmit={this.handleSubmit}></i>
+                    <i class="fas fa-search" type="submit" onSubmit={this.handleSubmit}></i>
                     {/* <input type="submit"  /> */}
                 </form>
                 <Map />

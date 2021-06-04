@@ -44,7 +44,6 @@ class SignUp extends Component {
                 email: this.state.email,
                 password: this.state.password
             }
-            debugger
             this.props.signup(user)
             this.props.history.push('/home')
         }

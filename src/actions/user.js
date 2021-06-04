@@ -27,9 +27,6 @@ export const signup = (user) => {
             body: JSON.stringify({user})    
         })
         .then(r => r.json())
-        // debugger
-        .then(r => console.log(r))
-        // .then(console.log)
         .then(resp => dispatch({ type: 'SIGN_UP', payload: resp }))
         .catch(err => console.log(err))
     }

@@ -20,6 +20,7 @@ class NavBar extends Component {
     }
     handleSelection = e => {
         e.preventDefault()
+        debugger
         this.props.history.push(`/${e.target.href}`)
         this.handleMenu(e)
     }
@@ -71,7 +72,9 @@ class NavBar extends Component {
     render(){
         return(
             <nav className="navbar-items">
-                <img className="navbar-logo" src={brew} alt="Logo" href="/about" onClick={this.handleSelection}/>
+                <div to="/about" onClick={this.handleSelection} >
+                    <img className="navbar-logo" src={brew} alt="Logo" />
+                </div>
                     {this.loggedIn()}
             </nav>
         )

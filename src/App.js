@@ -9,6 +9,7 @@ import User from './components/user/User'
 import Logout from './components/user/UserLogout'
 import Landing from './Landing'
 import Favorites from './components/user/UserFavorites'
+import About from './About'
 
 
 class App extends React.Component{
@@ -20,16 +21,21 @@ class App extends React.Component{
   loggedIn = () => {
     if (this.props.user !== {} ){
     // if (Object.keys(this.props.user).length > 1 ){
+
       return(
+        // if user is logged in, they should be taken to user component "/home"
+        // user shouldn't be able to access any of these routes if not logged in 
         <>  
           <Route path="/home" component={ User } />
           <Route path="/breweries" component={ BreweriesContainer } />
           <Route path="/favorites" component={ Favorites } />
           <Route path="/logout" component={ Logout }/>
+          <Route path="/about" component={About} />
         </>
       )
     } else {
       return(
+        // create landing page when user is not logged in 
         <Redirect to="/" component={Landing}/>
       )
     }

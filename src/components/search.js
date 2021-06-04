@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import fetchBreweries from '../actions/fetchBreweries'
 import Map from './GoogleMap'
+import { connect } from 'react-redux';
 import './search.css'
 
 class Search extends Component {
@@ -17,11 +18,12 @@ class Search extends Component {
         debugger
         // look through breweries
         // fetchBreweries(event)
+        this.props.fetchBreweries(this.state.input)
     }
     
     handleChange = e => {
         this.setState({
-            input: e.target.value
+            [e.target.name]: e.target.value
         })
     }
 
@@ -31,8 +33,8 @@ class Search extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" 
                     className="search-bar"
-                    name="Finput"
-                    value={this.state.Finput}
+                    name="fInput"
+                    value={this.state.fInput}
                     placeholder="Search by location"
                     onChange={this.handleChange}/>
                     <i class="fas fa-search" type="submit" onSubmit={this.handleSubmit}></i>
@@ -43,4 +45,5 @@ class Search extends Component {
     }
 }
 
-export default Search
+
+export default connect(null, {fetchBreweries})(Search)

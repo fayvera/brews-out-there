@@ -23,7 +23,7 @@ class BreweriesContainer extends Component{
     // }
 
     render(){
-        console.log(this)
+        
         return(
             <div className="brewery-wrapper">
                 <div className="search-bar">

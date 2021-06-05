@@ -15,10 +15,8 @@ const center = {
     //         console.log("Longitude is :", position.coords.longitude);
     //       });
     // } else {
-
         lat: 40.730610,
         lng: -73.935242
-    
     // }
 }
 
@@ -29,6 +27,22 @@ export default function Map(){
     })
 
     const [markers, setMarkers] = React.useState([])
+    const [selected, setSelected] = React.useState(null)
+
+    const onMapClick = React.useCallback((event) => {
+        setMarkers((current) => [
+            ...current,
+            {
+                lat: event.latLng.lat(),
+                lng: event.latLng.lng()
+            }
+        ]
+        )})
+
+    const mapRef = React.useRef();
+    const onMapLoad = React.useCallback((map) => {
+        mapRef.current = map
+    }, []);    
  
     if(loadError) return 'Error loading maps';
     if(!isLoaded) return "Loading Maps";
@@ -38,18 +52,25 @@ export default function Map(){
             mapContainerStyle={mapContainerStyle}
             zoom={10}
             center={center}
-            onClick={(event) => {setMarkers(current => [
-                ...current,
-                {
-                    lat: event.latLng.lat(),
-                    lng: event.latLng.lng()
-                }
-            ])}}
+            onLoad={onMapLoad}
+            onClick={onMapClick}
             >
                 {markers.map((marker, index) => (
                 <Marker key={index}
                 position={{lat: marker.lat, lng: marker.lng}}
-                icon={<i className="fas fa-beer"/>}/>))}
+                // icon={<i className="fas fa-beer"/>}
+                onClick={() => {
+                    setSelected(marker)
+                }}/>))}
+
+            {selected ? (
+            <InfoWindow position={{lat: selected.lat, lng: selected.lng}}>
+                <div>
+                    <h2>Here will be the title</h2>
+                    <p>Here will be the info</p>
+                </div>
+            </InfoWindow>) : null }      
+
             </GoogleMap>
         </div>
     )

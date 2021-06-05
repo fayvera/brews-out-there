@@ -6,6 +6,7 @@ import {Route, Switch} from 'react-router-dom'
 import {currentUser, login, signup, logout} from '../actions/user.js'
 import { connect } from 'react-redux';
 import Favorites from './UserFavorites'
+import About from '../About'
 import Logout from './UserLogout'
 
 
@@ -25,9 +26,9 @@ class UserContainer extends Component {
     }
 
     isLoggedIn = () => {
-        if(Object.keys(this.props.user) === [] || 'message'){
+        // if(Object.keys(this.props.user) === [] || 'message'){
         // if((Object.keys(this.props.user.message) === "Please log in" )|| (Object.keys(this.props.user).length === 0)) {
-        // if (Object.keys(this.props.user).length === 0){
+        if (this.props.user === null){
             return (
                 <>
                 <Switch>
@@ -40,8 +41,9 @@ class UserContainer extends Component {
                 return(
                     <div>
                         <Switch>
+                            <Route path="/about" component={About}/>
                             <Route path="/home" component={User} />
-                            <Route path ="/favorite" component={Favorites}/>
+                            <Route path ="/favorites" component={Favorites}/>
                             <Route path="/logout" component={Logout} />
                         </Switch>
                     </div>

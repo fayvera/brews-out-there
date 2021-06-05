@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { createStore, compose, applyMiddleware } from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension'
 import thunk from 'redux-thunk';
-import userReducer from './reducers/userReducer'
+import reducer from './reducers/index'
 
 // import { createHistory } from 'history'
 // import { useRouterHistory } from 'react-router'
@@ -16,10 +16,10 @@ import userReducer from './reducers/userReducer'
 
 // const browserHistory = useRouterHistory(createHistory)({
 //   basename: 'http://localhost:3000/'
-// })
+// })s
 // const history = syncHistoryWithStore(browserHistory, store)
 
-const store = createStore(userReducer,compose(applyMiddleware(thunk), composeWithDevTools()))
+const store = createStore(reducer,compose(applyMiddleware(thunk), composeWithDevTools()))
 
 
 ReactDOM.render(

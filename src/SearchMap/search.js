@@ -31,6 +31,7 @@ class Search extends Component {
     }
 
     handleFilter = e => {
+        
         // can search by city, postal code, state, (or type)
     }
 

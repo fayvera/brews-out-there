@@ -48,7 +48,8 @@ export default function Map(){
             >
                 {markers.map((marker, index) => (
                 <Marker key={index}
-                position={{lat: marker.lat, lng: marker.lng}}/>))}
+                position={{lat: marker.lat, lng: marker.lng}}
+                icon={<i className="fas fa-beer"/>}/>))}
             </GoogleMap>
         </div>
     )

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../actions/user.js'
-// import User from './User'
 import { withRouter } from "react-router";
 
 
@@ -34,7 +33,6 @@ class Login extends Component {
         if(Object.keys(this.props.user)){
             this.props.history.push('/home')
         } else {
-            // didn't properly log in 
             alert(
                 "Something went wrong!"
             )

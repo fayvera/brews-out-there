@@ -7,10 +7,19 @@ const mapContainerStyle = {
     width: '94vw',
     height: '100vh',
 }
-const center ={
+const center = {
     // geolocator gem
-    lat: 40.730610,
-    lng: -73.935242
+    // if(navigator.geolocation){
+    //     navigator.geolocation.getCurrentPosition(function(position) {
+    //         console.log("Latitude is :", position.coords.latitude);
+    //         console.log("Longitude is :", position.coords.longitude);
+    //       });
+    // } else {
+
+        lat: 40.730610,
+        lng: -73.935242
+    
+    // }
 }
 
 export default function Map(){
@@ -19,7 +28,7 @@ export default function Map(){
         libraries
     })
 
-    const [markers, setMarkers] =React.useState([])
+    const [markers, setMarkers] = React.useState([])
  
     if(loadError) return 'Error loading maps';
     if(!isLoaded) return "Loading Maps";

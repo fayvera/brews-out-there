@@ -18,7 +18,6 @@ class Search extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        debugger
         // look through breweries
         // fetchBreweries(event)
         const formatInput = this.state.input.split(' ').join('_').toLocaleLowerCase() 

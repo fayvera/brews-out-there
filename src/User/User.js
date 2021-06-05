@@ -1,7 +1,5 @@
 import React from 'react'
-import { currentUser } from '../actions/user.js'
-// import Search from '../SearchMap/search'
-// import Map from '../SearchMap/GoogleMap'
+
 import BreweriesContainer from '../Brews/BreweriesContainer.js'
 
 

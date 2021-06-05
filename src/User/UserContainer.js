@@ -21,6 +21,7 @@ class UserContainer extends Component {
             method: "GET"
         }
         this.props.currentUser(config)
+
     }
 
     isLoggedIn = () => {

@@ -1,8 +1,6 @@
-const reducer = (state = {user: {}}, action) => {
-    console.log(action)
+const userReducer = (state = {user: {}}, action) => {
     switch (action.type){
     case "SIGN_UP":
-        debugger
         return {
             ...state, 
             user: action.payload.user
@@ -20,10 +18,10 @@ const reducer = (state = {user: {}}, action) => {
             user: {}
         }
     // case "UPDATE_USER":
-        
+        // when user likes a brewery
      
 
-    
+
     // case "DELETE_USER":
     //   return state.filter(user => user.id !== action.user.id)
     // case "LIKE":
@@ -40,6 +38,6 @@ const reducer = (state = {user: {}}, action) => {
         return state
     }
   }
-  export default reducer
+  export default userReducer
 
 

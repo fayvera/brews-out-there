@@ -19,9 +19,7 @@ class App extends React.Component{
 
 
   loggedIn = () => {
-
     if (Object.keys(this.props.user).length > 1 ){
-      debugger
       return(
         // if user is logged in, they should be taken to user component "/home"
         // user shouldn't be able to access any of these routes if not logged in 

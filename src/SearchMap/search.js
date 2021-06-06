@@ -30,8 +30,20 @@ class Search extends Component {
         })
     }
 
-    handleFilter = e => {
+    handleFilter = value => {
+        debugger
         
+        this.setState({
+            type: value
+        })
+        const filteredData;
+        if (value == ""){
+            filteredData = this.props.data;
+        } else {
+            filteredData = this.props.data.filter(item => {
+                return item.type === value;
+            })
+        }
         // can search by city, postal code, state, (or type)
     }
 

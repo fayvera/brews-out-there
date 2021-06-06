@@ -19,3 +19,10 @@ NOT PERSISTING USER WHEN PAGE REFRESHES
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=[YOUR-KEY]&callback=initMap"
   type="text/javascript"></script>
+
+
+
+  things needed to install: npm i use-places-autocomplete
+  npm i @reach/combobox
+  npm i date-fns
+  google maps key

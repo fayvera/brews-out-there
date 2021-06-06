@@ -10,6 +10,7 @@ import About from '../About'
 import Logout from './UserLogout'
 
 
+
 class UserContainer extends Component {
 
 
@@ -22,7 +23,6 @@ class UserContainer extends Component {
             method: "GET"
         }
         this.props.currentUser(config)
-
     }
 
     isLoggedIn = () => {

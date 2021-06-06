@@ -3,6 +3,7 @@ import './search.css'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api'
 import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete"
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption} from "@reach/combobox"
+import Locate from './Locate'
 // import "reach/comcobox/styles."
 // import '../.env'
 import { formatRelative } from "date-fns";
@@ -27,7 +28,7 @@ const center = {
 
 export default function Map(){
     const {isLoaded, loadError} = useLoadScript({
- 
+
         // googleMapsApiKey: (process.env.REACT_APP_GOOGLE_KEY),
         libraries
     })
@@ -62,6 +63,7 @@ export default function Map(){
         <div className="map-div">
 
             <Search panTo={panTo}/>
+            <Locate panTo={panTo}/>
 
             <GoogleMap 
             mapContainerStyle={mapContainerStyle}
@@ -94,7 +96,7 @@ export default function Map(){
     )
 }
 
-function Search(panTo){
+function Search({ panTo }){
     const {ready, 
         value, 
         suggestions: {status, data}, 
@@ -132,11 +134,13 @@ function Search(panTo){
             disabled={!ready}
             placeholder="Search by Location"/>
             <ComboboxPopover>
-                {status === "OK" && data.map(({id, description}) => (
-                <ComboboxOption 
-                key={id} 
-                value={description}/>
-                ))}
+                <ComboboxList>
+                    {status === "OK" && data.map(({id, description}) => (
+                    <ComboboxOption 
+                        key={id} 
+                        value={description}/>
+                        ))}
+                </ComboboxList>
             </ComboboxPopover>
         </Combobox>
     </div>

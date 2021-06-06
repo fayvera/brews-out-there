@@ -26,9 +26,9 @@ class UserContainer extends Component {
     }
 
     isLoggedIn = () => {
-        // if(Object.keys(this.props.user) === [] || 'message'){
         // if((Object.keys(this.props.user.message) === "Please log in" )|| (Object.keys(this.props.user).length === 0)) {
-        if (this.props.user === null){
+        if (Object.keys(this.props.user).length == 0 || this.props.user === undefined){
+            // if user is not logged in 
             return (
                 <>
                 <Switch>
@@ -41,7 +41,7 @@ class UserContainer extends Component {
                 return(
                     <div>
                         <Switch>
-                            <Route path="/about" component={About}/>
+                            {/* <Route path="/about" component={About}/> */}
                             <Route path="/home" component={User} />
                             <Route path ="/favorites" component={Favorites}/>
                             <Route path="/logout" component={Logout} />

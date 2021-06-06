@@ -64,7 +64,10 @@ export default function Map(){
                 }}/>))}
 
             {selected ? (
-            <InfoWindow position={{lat: selected.lat, lng: selected.lng}}>
+            <InfoWindow position={{lat: selected.lat, lng: selected.lng}} 
+            onCloseClick ={() => {
+                setSelected(null)
+            }}>
                 <div>
                     <h2>Here will be the title</h2>
                     <p>Here will be the info</p>

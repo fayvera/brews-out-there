@@ -7,7 +7,8 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { createStore, compose, applyMiddleware } from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension'
 import thunk from 'redux-thunk';
-import reducer from './reducers/index'
+// import reducer from './reducers/index'
+import userReducer from './reducers/userReducer'
 
 // import { createHistory } from 'history'
 // import { useRouterHistory } from 'react-router'
@@ -19,7 +20,7 @@ import reducer from './reducers/index'
 // })s
 // const history = syncHistoryWithStore(browserHistory, store)
 
-const store = createStore(reducer,compose(applyMiddleware(thunk), composeWithDevTools()))
+const store = createStore(userReducer,compose(applyMiddleware(thunk), composeWithDevTools()))
 
 
 ReactDOM.render(

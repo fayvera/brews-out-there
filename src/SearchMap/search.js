@@ -45,7 +45,7 @@ class Search extends Component {
                     value={this.state.input}
                     placeholder="Search by location"
                     onChange={this.handleChange}/>
-                    <i 
+                    <button
                     className="fas fa-search" 
                     type="submit" 
                     onSubmit={this.handleSubmit}/>

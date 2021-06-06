@@ -29,7 +29,6 @@ class Login extends Component {
         }
         // check credentials
         this.props.login(data)
-        // if(this.props.user !== undefined){
         if(Object.keys(this.props).includes("user")){
             this.props.history.push('/home')
         } else {

@@ -26,10 +26,10 @@ class App extends React.Component{
         // if user is logged in, they should be taken to user component "/home"
         // user shouldn't be able to access any of these routes if not logged in 
         <>  
-          <Route path="/home" component={ User } />
-          <Route path="/breweries" component={ BreweriesContainer } />
-          <Route path="/favorites" component={ Favorites } />
-          <Route path="/logout" component={ Logout }/>
+          {/* <Route path="/home" component={ User } /> */}
+          {/* <Route path="/breweries" component={ BreweriesContainer } /> */}
+          {/* <Route path="/favorites" component={ Favorites } />
+          <Route path="/logout" component={ Logout }/> */}
           <Route path="/about" component={About} />
         </>
       )
@@ -38,9 +38,6 @@ class App extends React.Component{
         // create landing page when user is not logged in 
         <>
           <Redirect to="/" component={Landing}/>
-          {/* <Route path="/login" component={Login}/> */}
-          {/* <Route path="/signup" component={Signup} /> */}
-          {/* <Route path="/signup" component={Signup}/> */}
         </>
       )
     }

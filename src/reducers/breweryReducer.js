@@ -1,4 +1,4 @@
-const breweryReducer = (state = {brewery: {}}, action) => {
+const breweryReducer = (state = [], action) => {
     switch (action.type){
         case "FETCH_BREWERY":
             return{

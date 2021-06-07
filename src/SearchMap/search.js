@@ -23,10 +23,6 @@ import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption}
 //         })
 //     }
 
-//     // onSelect(selectedList, selectedItem){
-
-//     // }
-
 //     items = [
 //         {id: 1, type: "micro"},
 //         {id: 2, type: "nano"},
@@ -83,7 +79,8 @@ import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption}
 //                     onSubmit={this.handleSubmit}/>
 //                     <i className="fas fa-ellipsis-v" onClick={this.handleFilter}></i>
 //                 </form>
-//                 {/* <Map /> */}
+                    // <Dropdown title="Filter" items={items} multiSelect/>
+
 //             </div>
 //         )   
 //     }
@@ -92,7 +89,10 @@ import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption}
 
 // export default connect(null, {fetchBreweriesType, fetchByCity})(Search)
 
-export default function Search({ panTo }){
+
+
+
+function Search({ panTo }){
     const {ready, 
         value, 
         suggestions: {status, data}, 
@@ -115,13 +115,11 @@ export default function Search({ panTo }){
         {id: 8, type: "contract"},
         {id: 9, type: "proprietor"},
         {id: 10, type: "closed"}
-
     ]
     
     const handleSelect = async (address) => {
         setValue(address, false);
         clearSuggestions()
-
         try {
             const results = await getGeocode({address});
             const { lat, lng } = await getLatLng(results[0])
@@ -132,25 +130,38 @@ export default function Search({ panTo }){
         }
     const handleInput = (e) => {
         setValue(e.target.value);
-        debugger
+        // debugger
     }
 
     const handleSubmit = e => {
         e.preventDefault();
-        const formatInput = this.state.input.split(' ').join('_').toLocaleLowerCase() 
         debugger
+        const formatInput = this.state.input.split(' ').join('_').toLocaleLowerCase() 
         this.props.fetchByCity(formatInput)
     }
 
     return (
         <div className="search-bar">
             <Combobox onSelect={handleSelect}>
+
+                {/* <form onSubmit={handleSubmit}>
+                    <input type="text" 
+                    disabled={!ready}
+                    value={value} 
+                    placeholder="Search by Location"
+                    onChange={handleInput}
+                    />
+                    <button type="submit"></button>
+                </form> */}
+
+
                 <ComboboxInput 
                 value={value} 
                 onChange={handleInput}
                 disabled={!ready}
-                placeholder="Search by Location">
-
+                placeholder="Search by Location"
+                onPanChange={handleSubmit}
+                >
                 </ComboboxInput>
                 
 
@@ -168,3 +179,5 @@ export default function Search({ panTo }){
     </div>
     )
 }
+
+export default connect(null, { fetchByCity, fetchBreweriesType })(Search)

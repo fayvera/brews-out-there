@@ -3,6 +3,6 @@ import userReducer from './userReducer'
 import breweryReducer from './breweryReducer'
 
 export default combineReducers({
-    userReducer,
-    breweryReducer
+    user: userReducer,
+    breweries: breweryReducer
 })

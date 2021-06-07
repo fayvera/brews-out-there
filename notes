@@ -1,4 +1,4 @@
-NOT PERSISTING USER WHEN PAGE REFRESHES
+
 
 -handle login/logout credentials
 - once user signs up, redirect to showpage
@@ -13,7 +13,7 @@ NOT PERSISTING USER WHEN PAGE REFRESHES
 
 -complete about and landing page
 
--reorganize files (components folder/navbar folder)
+
 
 
 
@@ -33,3 +33,4 @@ NOT PERSISTING USER WHEN PAGE REFRESHES
     ]
   } to package.json
   google maps key
+

@@ -1,4 +1,5 @@
 const userReducer = (state = {user: {}}, action) => {
+    // debugger
     switch (action.type){
     case "SIGN_UP":
         return {
@@ -22,8 +23,7 @@ const userReducer = (state = {user: {}}, action) => {
      
 
 
-    // case "DELETE_USER":
-    //   return state.filter(user => user.id !== action.user.id)
+
     // case "LIKE":
     //   index = state.findIndex(quote => quote.id === action.quoteId)
     //   quote = state[index]

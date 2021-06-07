@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
+import { connect } from 'react-redux';
+import { fetchByType } from '../actions/fetchBreweries';
 
-export default function Dropdown({title, items, multiSelect = false}){
+
+function Dropdown({title, items, multiSelect = false}){
     const [open, setOpen] = useState(false);
     const [selection, setSelection] = useState([]);
     const toggle = () => setOpen(!open);
@@ -25,8 +28,9 @@ export default function Dropdown({title, items, multiSelect = false}){
 
     function isItemInSelection(item) {
         if (selection.some(current => current.id === item.id)) {
-            console.log("selected")
-            return true
+            debugger
+            return fetchByType(item.type)
+            // return true
         }
         return false
     }
@@ -61,3 +65,6 @@ export default function Dropdown({title, items, multiSelect = false}){
          </div>
         )
 }
+
+
+export default connect(null, {fetchByType})(Dropdown)

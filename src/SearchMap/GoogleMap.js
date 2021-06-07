@@ -1,14 +1,9 @@
 import React from 'react'
 import './search.css'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api'
-import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete"
-import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption} from "@reach/combobox"
 import Locate from './Locate'
 import Search from './search'
 
-
-// import "reach/comcobox/styles."
-// import '../.env'
 import { formatRelative } from "date-fns";
 
 const libraries = ["places"]
@@ -39,6 +34,19 @@ export default function Map(){
             }
         ]
         )})
+// locations from fetch request 
+    // const locations =     
+    // const placeMarkers = new google.maps.Marker({
+    //     position 
+    // }) 
+    // => {
+    //     debugger
+    //     setMarkers(() =>[
+    //     ])
+    // })  
+    const placeMarkers = () => {
+        debugger
+    }
 
     const mapRef = React.useRef();
     const onMapLoad = React.useCallback((map) => {
@@ -65,6 +73,7 @@ export default function Map(){
                 zoom={10}
                 center={center}
                 onLoad={onMapLoad}
+                onPanChange={placeMarkers}
                 onClick={onMapClick}
                 >
                     {markers.map((marker, index) => (

@@ -22,7 +22,7 @@ class App extends React.Component{
 
 
   loggedIn = () => {
-    if (this.props.user !== undefined && Object.keys(this.props.user).length > 0){  
+    if (this.props.user.user !== undefined && Object.keys(this.props.user.user).length > 0){  
       return(
         // if user is logged in, they should be taken to user component "/home"
         // user shouldn't be able to access any of these routes if not logged in 

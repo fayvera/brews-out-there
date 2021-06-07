@@ -14,16 +14,8 @@ const mapContainerStyle = {
     height: '100vh',
 }
 const center = {
-    // geolocator gem
-    // if(navigator.geolocation){
-    //     navigator.geolocation.getCurrentPosition(function(position) {
-    //         console.log("Latitude is :", position.coords.latitude);
-    //         console.log("Longitude is :", position.coords.longitude);
-    //       });
-    // } else {
         lat: 40.730610,
         lng: -73.935242
-    // }
 }
 
 export default function Map(){

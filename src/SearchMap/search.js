@@ -3,7 +3,8 @@ import {fetchBreweriesType, fetchByCity} from '../actions/fetchBreweries'
 import Map from './GoogleMap'
 import { connect } from 'react-redux';
 import './search.css'
-import { Multiselect } from 'multiselect-react-dropdown'
+import Dropdown from './Dropdown'
+// import { Multiselect } from 'multiselect-react-dropdown'
 
 class Search extends Component {
     constructor(){
@@ -32,28 +33,30 @@ class Search extends Component {
     onSelect(selectedList, selectedItem){
 
     }
-    handleFilter = value => {
+    handleFilter = () => {
         debugger
-        <Multiselect 
-        options={this.state.options}
-        selectedValues={this.state.selectedValues}
-        onSelect={this.onSelect}
-        onRemove={this.onRemove}
-        displayValue="type"
-        />
+        <Dropdown />
 
-        this.setState({
-            type: value
-        })
-        const filteredData = ""
-        if (value == ""){
-            filteredData = this.props.data;
-        } else {
-            debugger
-            filteredData = this.props.data.filter(item => {
-                return item.type === value;
-            })
-        }
+        // <Multiselect 
+        // options={this.state.options}
+        // selectedValues={this.state.selectedValues}
+        // onSelect={this.onSelect}
+        // onRemove={this.onRemove}
+        // displayValue="type"
+        // />
+
+        // this.setState({
+        //     type: value
+        // })
+        // const filteredData = ""
+        // if (value == ""){
+        //     filteredData = this.props.data;
+        // } else {
+        //     debugger
+        //     filteredData = this.props.data.filter(item => {
+        //         return item.type === value;
+        //     })
+        // }
         // can search by city, postal code, state, (or type)
     }
 

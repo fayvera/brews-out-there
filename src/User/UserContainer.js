@@ -6,7 +6,6 @@ import {Route, Switch} from 'react-router-dom'
 import {currentUser, login, signup, logout} from '../actions/user.js'
 import { connect } from 'react-redux';
 import Favorites from './UserFavorites'
-import About from '../About'
 import Logout from './UserLogout'
 
 
@@ -26,8 +25,7 @@ class UserContainer extends Component {
     }
 
     isLoggedIn = () => {
-        // if((Object.keys(this.props.user.message) === "Please log in" )|| (Object.keys(this.props.user).length === 0)) {
-        if (Object.keys(this.props.user).length == 0 || this.props.user === undefined){
+        if (Object.keys(this.props.user).length === 0 || this.props.user === undefined){
             // if user is not logged in 
             return (
                 <>

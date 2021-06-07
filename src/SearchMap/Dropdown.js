@@ -5,8 +5,24 @@ export default function Dropdown({title, items = [], multiSelect = false}){
     const [selection, setSelection] = useState([]);
     const toggle = () => setOpen(!open)
 
-    function handleOnClick(item) {
-        
+    const handleOnClick = (item) => {
+        if(!selection.some(current => current.id == item.id)){
+            setSelection([...selection], item)
+        } else{
+            let selectionAfterRemoval = selection;
+            selectionAfterRemoval = selectionAfterRemoval.filter(
+                current => current.id !== item.id
+            )
+           setSelection([...selectionAfterRemoval])
+
+        }
+    }
+
+    const isItemSelected = item => {
+        if (selection.find(current => current.id == item.id)){
+            return true
+        }
+        return false
     }
 
     return(
@@ -21,16 +37,16 @@ export default function Dropdown({title, items = [], multiSelect = false}){
                         <p className="dd-header__title--bold"> {title} </p>
                     </div>
                     <div className="dd-header__action">
-                        <p> {open ? "Close" : "Open"} </p>
+                        <p> {open ? "Done" : "Open"} </p>
                     </div>
             </div>
             {open && (
                 <ul className="dd-list"> 
                 {items.map((item, index) => (
                     <li className="dd-list-item" key={index}>
-                        <button type="checkbox" onClick={() => handleOnClick(item)}>
-                            <span>{item.value}</span>
-                            <span>Selected...</span>
+                        <button type="checkbox" onClick={handleOnClick}>
+                            <span>{item.type}</span>
+                            <span>{isItemSelected(item) && "Selected"}</span>
                         </button>
                     </li>
                 )

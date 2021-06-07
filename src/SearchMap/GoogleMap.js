@@ -87,6 +87,10 @@ export default function Map(){
     )
 }
 
+
+
+// break into other component
+
 function Search({ panTo }){
     const {ready, 
         value, 

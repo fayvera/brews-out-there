@@ -6,7 +6,7 @@ export default function Dropdown({title, items = [], multiSelect = false}){
     const toggle = () => setOpen(!open)
 
     function handleOnClick(item) {
-
+        
     }
 
     return(

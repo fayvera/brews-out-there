@@ -4,7 +4,7 @@ import Map from './GoogleMap'
 import { connect } from 'react-redux';
 import './search.css'
 import Dropdown from './Dropdown'
-// import { Multiselect } from 'multiselect-react-dropdown'
+import { Multiselect } from 'multiselect-react-dropdown'
 
 class Search extends Component {
     constructor(){

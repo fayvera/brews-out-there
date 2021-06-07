@@ -44,11 +44,14 @@
     /* min-height: 38px; */
     flex-wrap: wrap;
     float: right;
-    right: 50px;
+    right: 32px;
     top: 140px;
     position: absolute;
     z-index: 11;
-    background: white;
+    background: #e5e7ff;
+    padding: 5px;
+    height: 40px;
+    width: 200px;
 }
 
     .dd-header {

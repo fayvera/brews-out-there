@@ -8,6 +8,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension'
 import thunk from 'redux-thunk';
 // import reducer from './reducers/index'
+
 import userReducer from './reducers/userReducer'
 
 // import { createHistory } from 'history'

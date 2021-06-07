@@ -5,6 +5,8 @@ import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocom
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption} from "@reach/combobox"
 import Locate from './Locate'
 import Search from './search'
+// import ('dotenv').config()
+
 // import "reach/comcobox/styles."
 // import '../.env'
 import { formatRelative } from "date-fns";
@@ -21,7 +23,7 @@ const center = {
 
 export default function Map(){
     const {isLoaded, loadError} = useLoadScript({
-        // googleMapsApiKey: (process.env.REACT_APP_GOOGLE_KEY),
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY,
         libraries
     })
 

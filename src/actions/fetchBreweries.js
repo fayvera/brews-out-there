@@ -9,6 +9,7 @@ export const fetchByCity = input => {
     }
 }
 
+
 export const fetchByType = input => {
     return function(dispatch) {
         fetch(`https://api.openbrewerydb.org/breweries?by_type=${input}`)
@@ -19,6 +20,11 @@ export const fetchByType = input => {
     }
 }
 
+// export const fetchLngLat = input => {
+//     return function(dispatch){
+
+//     }
+// }
 
 export const fetchBreweriesType = (data) => {
     return function(dispatch) {

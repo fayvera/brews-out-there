@@ -25,7 +25,6 @@ class UserContainer extends Component {
     }
 
     isLoggedIn = () => {
-        // debugger
         if (Object.keys(this.props.user.user).length === 0 || this.props.user.user === undefined){
             return (
                 <>

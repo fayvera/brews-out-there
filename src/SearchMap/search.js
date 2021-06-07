@@ -90,7 +90,7 @@ class Search extends Component {
                     onSubmit={this.handleSubmit}/>
                     <i className="fas fa-ellipsis-v" onClick={this.handleFilter}></i>
                 </form>
-                <Map />
+                {/* <Map /> */}
             </div>
         )   
     }

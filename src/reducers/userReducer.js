@@ -1,23 +1,14 @@
-const userReducer = (state = {user: {}}, action) => {
+const userReducer = (state = {}, action) => {
     // debugger
     switch (action.type){
     case "SIGN_UP":
-        return {
-            ...state, 
-            user: action.payload.user
-        }
+        return action.payload.user
     case "LOG_IN":
-        return {
-            ...state, 
-            user: action.payload.user
-        }
+        return action.payload.user
     case "FETCH_USER":
-        return {user: action.payload}
+        return action.payload
     case "LOG_OUT":
-        return {
-            ...state,
-            user: {}
-        }
+        return {}
     // case "UPDATE_USER":
         // when user likes a brewery
      

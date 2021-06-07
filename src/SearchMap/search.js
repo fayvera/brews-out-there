@@ -55,16 +55,6 @@ class Search extends React.Component {
     ]
     handleFilter = () => {
         debugger
-        // <Dropdown title="Filter" items={this.items} multiSelect/>
-
-        // <Multiselect 
-        // options={this.state.options}
-        // selectedValues={this.state.selectedValues}
-        // onSelect={this.onSelect}
-        // onRemove={this.onRemove}
-        // displayValue="type"
-        // />
-
         // this.setState({
         //     type: value
         // })
@@ -105,6 +95,9 @@ class Search extends React.Component {
 
 
 export default connect(null, {fetchBreweriesType, fetchByCity})(Search)
+
+
+
 
 
 

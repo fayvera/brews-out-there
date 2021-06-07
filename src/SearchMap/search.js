@@ -33,9 +33,23 @@ class Search extends Component {
     onSelect(selectedList, selectedItem){
 
     }
+
+    items = [
+        {id: 1, type: "micro"},
+        {id: 2, type: "nano"},
+        {id: 3, type: "regional"},
+        {id: 4, type: "brewpub"},
+        {id: 5, type: "large"},
+        {id: 6, type: "planning"},
+        {id: 7, type: "bar"},
+        {id: 8, type: "contract"},
+        {id: 9, type: "proprietor"},
+        {id: 10, type: "closed"}
+
+    ]
     handleFilter = () => {
         debugger
-        <Dropdown />
+        <Dropdown items={this.items}/>
 
         // <Multiselect 
         // options={this.state.options}

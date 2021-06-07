@@ -20,6 +20,7 @@ export default function Dropdown({title, items = [], multiSelect = false}){
 
     const isItemSelected = item => {
         if (selection.find(current => current.id == item.id)){
+            console.log("selected")
             return true
         }
         return false

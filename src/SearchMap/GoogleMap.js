@@ -5,7 +5,7 @@ import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocom
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption} from "@reach/combobox"
 import Locate from './Locate'
 import Search from './search'
-// import ('dotenv').config()
+
 
 // import "reach/comcobox/styles."
 // import '../.env'

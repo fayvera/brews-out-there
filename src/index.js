@@ -11,16 +11,6 @@ import thunk from 'redux-thunk';
 
 import userReducer from './reducers/userReducer'
 
-// import { createHistory } from 'history'
-// import { useRouterHistory } from 'react-router'
-// import { syncHistoryWithStore } from 'react-router-redux' 
-
-
-// const browserHistory = useRouterHistory(createHistory)({
-//   basename: 'http://localhost:3000/'
-// })s
-// const history = syncHistoryWithStore(browserHistory, store)
-
 const store = createStore(userReducer,compose(applyMiddleware(thunk), composeWithDevTools()))
 
 

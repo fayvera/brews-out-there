@@ -50,13 +50,13 @@ class Login extends Component {
                 type="email" 
                 placeholder="Email"
                 value={this.state.email}
-                onChange={this.handleChange}/>
+                onChange={this.handleChange}/><br></br>
                 <input 
                 name="password"
                 type="password" 
                 placeholder="Password"
                 value={this.state.password}
-                onChange={this.handleChange}/>
+                onChange={this.handleChange}/><br></br>
                 <button className="login__btn" type="submit" >LogIn</button>
             </form>
         </div>

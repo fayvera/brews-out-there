@@ -3,6 +3,7 @@ body {
   font-family:'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: radial-gradient(circle, lightblue, white);
   /* background-image: url('./stylesheet/beer-stock.png'); */
 
 }

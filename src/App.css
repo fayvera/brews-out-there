@@ -85,10 +85,13 @@
 .landing-page {
   top: 3rem;
   /* background-image: url("./stylesheet/beer-taps.png"), 
-    
     linear-gradient(to bottom, rgba(255,255,0,0.5), rgba(0,0,255,0.5)); */
-    /* background: radial-gradient(circle, blue, white);
-    bottom: 0px; */
+    /* background: radial-gradient(circle, lightblue, white); */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-content: stretch;
+    flex-wrap: nowrap;
 }
 
 .navbar-logo {
@@ -101,4 +104,16 @@
   position: inherit;
   top: 0;
   left: 0;
+}
+
+.login, .signup{
+  /* display: grid; */
+  display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.login_form{
+  padding: 20px;
 }

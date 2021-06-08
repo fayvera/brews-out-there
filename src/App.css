@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
   font-family: "Montserrat";
@@ -66,14 +67,38 @@
   font-family: 'Signika', sans-serif;
   margin-left: auto;
   margin-right: auto;
+  padding: 30px;
+  z-index: 10px;
 }
 
 .about-p {
   margin-left: 2rem;
   margin-right: 2rem;
+  padding: 2rem;
 }
 
 .usr_favorites_div{
   text-align: center;
   padding-top: 3rem;
+}
+
+.landing-page {
+  top: 3rem;
+  /* background-image: url("./stylesheet/beer-taps.png"), 
+    
+    linear-gradient(to bottom, rgba(255,255,0,0.5), rgba(0,0,255,0.5)); */
+    /* background: radial-gradient(circle, blue, white);
+    bottom: 0px; */
+}
+
+.navbar-logo {
+  color: #fff;
+  cursor: pointer;
+  justify-self: start;
+  max-width: 300px;
+  border-radius: 6rem;
+  opacity: 0.9;  height: auto;
+  position: inherit;
+  top: 0;
+  left: 0;
 }

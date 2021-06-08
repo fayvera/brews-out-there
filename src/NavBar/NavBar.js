@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './navbar.css'
-import brew from './brew.png'
+// import brew from './brew.png'
 import { MenuItems, Access} from './MenuItems'
 import {connect} from 'react-redux'
 import { withRouter} from "react-router";
@@ -70,10 +70,10 @@ class NavBar extends Component {
         return(
             <nav className="navbar-items">  
                     {this.loggedIn()}
-                    {this.loggedIn == false ?  
-                        <img className="navbar-logo" src={brew} alt="Logo" onClick={this.handleSelection} />
-                        : null  
-                    }
+                    {/* {this.loggedIn == false ?  
+                        // <img className="navbar-logo" src={brew} alt="Logo" onClick={this.handleSelection} />
+                        : null   */}
+                    {/* } */}
             </nav>
         )
     }

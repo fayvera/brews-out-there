@@ -78,7 +78,6 @@ function Map(props){
                             setSelected(brewery)
                         }}
                         > 
-                        
                         {selected ? (
                             <InfoWindow position={{lat: selected.lat, lng: selected.lng}} 
                             onCloseClick ={() => {

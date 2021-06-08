@@ -10,11 +10,17 @@ export const MenuItems = [
         cName: 'nav-links'
     },
     {
+        title: "About",
+        url:'/about',
+        cName: 'nav-links'
+    },
+    {
         title: "Log Out",
         url: '/logout',
         cName: 'nav-links'
         
     }
+
 ]
 
 export const Access = [

@@ -38,7 +38,7 @@ class App extends React.Component{
       return(
         // create landing page when user is not logged in 
         <>
-          <Redirect to="/" component={Landing}/>
+          <Route path="/" component={Landing}/>
         </>
       )
     }

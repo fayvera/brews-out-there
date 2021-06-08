@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function About(){
+function About(){
     return(
         <div className="about-info">
             <h1 className="title-name">BREW'S OUT THERE</h1>
@@ -11,3 +11,5 @@ export default function About(){
         </div>
     )
 }
+
+export default About

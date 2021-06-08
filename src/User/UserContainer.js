@@ -12,7 +12,6 @@ import Logout from './UserLogout'
 
 class UserContainer extends Component {
 
-
     componentDidMount() {
         const config = {
             headers: {

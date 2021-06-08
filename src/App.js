@@ -1,16 +1,16 @@
 import './App.css';
 import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
-import BreweriesContainer from './Brews/BreweriesContainer'
+// import BreweriesContainer from './Brews/BreweriesContainer'
 import NavBar from './NavBar/NavBar'
 import UserContainer from './User/UserContainer'
 import {connect} from 'react-redux'
-import User from './User/User'
-import Logout from './User/UserLogout'
-import Login from './User/UserLogin'
+// import User from './User/User'
+// import Logout from './User/UserLogout'
+// import Login from './User/UserLogin'
 // import SignUp from './User/UserSignUp'
 import Landing from './Landing'
-import Favorites from './User/UserFavorites'
+// import Favorites from './User/UserFavorites'
 import About from './About'
 
 

@@ -1,5 +1,4 @@
 const userReducer = (state = {}, action) => {
-    // debugger
     switch (action.type){
     case "SIGN_UP":
         return action.payload.user
@@ -11,10 +10,6 @@ const userReducer = (state = {}, action) => {
         return {}
     // case "UPDATE_USER":
         // when user likes a brewery
-     
-
-
-
     // case "LIKE":
     //   index = state.findIndex(quote => quote.id === action.quoteId)
     //   quote = state[index]

@@ -1,10 +1,10 @@
 import React from 'react'
 import './search.css'
+import { connect } from 'react-redux'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api'
 import Locate from './Locate'
 import Search from './search'
 
-import { formatRelative } from "date-fns";
 
 const libraries = ["places"]
 const mapContainerStyle = {
@@ -16,7 +16,7 @@ const center = {
         lng: -73.935242
 }
 
-export default function Map(){
+function Map(props){
     const {isLoaded, loadError} = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY,
         libraries
@@ -24,6 +24,7 @@ export default function Map(){
 
     const [markers, setMarkers] = React.useState([])
     const [selected, setSelected] = React.useState(null)
+
 
     const onMapClick = React.useCallback((event) => {
         setMarkers((current) => [
@@ -34,19 +35,8 @@ export default function Map(){
             }
         ]
         )})
-// locations from fetch request 
-    // const locations =     
-    // const placeMarkers = new google.maps.Marker({
-    //     position 
-    // }) 
-    // => {
-    //     debugger
-    //     setMarkers(() =>[
-    //     ])
-    // })  
-    const placeMarkers = () => {
-        debugger
-    }
+        
+
 
     const mapRef = React.useRef();
     const onMapLoad = React.useCallback((map) => {
@@ -57,6 +47,8 @@ export default function Map(){
         mapRef.current.panTo({lat, lng});
         mapRef.current.setZoom(14)
     }, [])
+
+
  
     if(loadError) return 'Error loading maps';
     if(!isLoaded) return "Loading Maps";
@@ -64,7 +56,7 @@ export default function Map(){
     return(
         <div className="map-wrapper">
 
-            <Search panTo={panTo}/>
+            <Search panTo={panTo} />
             <Locate panTo={panTo}/>
 
             <div className="map-div">
@@ -73,29 +65,49 @@ export default function Map(){
                 zoom={10}
                 center={center}
                 onLoad={onMapLoad}
-                onPanChange={placeMarkers}
-                onClick={onMapClick}
-                >
-                    {markers.map((marker, index) => (
-                    <Marker key={index}
-                    position={{lat: marker.lat, lng: marker.lng}}
-                    // icon={<i className="fas fa-beer"/>}
-                    onClick={() => {
-                        setSelected(marker)
-                    }}/>))}
+                onClick={onMapClick}>
+                    {props.breweries.map((brewery, index) => (
+                    brewery.latitude ? 
+                        <Marker 
+                        key={index}
+                        position={{
+                            lat: Math.fround(brewery.latitude), 
+                            lng: Math.fround(brewery.longitude)}}
+                        // icon={<i className="fas fa-beer"/>}
+                        onClick={() => {
+                            setSelected(brewery)
+                        }}
+                        > 
+                        
+                        {selected ? (
+                            <InfoWindow position={{lat: selected.lat, lng: selected.lng}} 
+                            onCloseClick ={() => {
+                            setSelected(null)
+                        }}>
+                            <div>
+                                <h2>{selected.name}</h2>
+                                <p>Here will be the info</p>
+                            </div>
+                        </InfoWindow>) : null }    
+                        
+                        </Marker>
+                    : 
+                        null
+                    ))}
+                        
+                        
+                
 
-                {selected ? (
-                <InfoWindow position={{lat: selected.lat, lng: selected.lng}} 
-                onCloseClick ={() => {
-                    setSelected(null)
-                }}>
-                    <div>
-                        <h2>Here will be the title</h2>
-                        <p>Here will be the info</p>
-                    </div>
-                </InfoWindow>) : null }      
                 </GoogleMap>
             </div>
         </div>
     )
 }
+
+const mapStateToProps = state => {
+    return {
+        breweries: state.breweries
+    }
+}
+
+export default connect(mapStateToProps)(Map)

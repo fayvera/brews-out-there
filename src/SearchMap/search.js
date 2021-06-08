@@ -1,12 +1,11 @@
 import React from 'react'
 import {fetchBreweriesType, fetchByCity} from '../actions/fetchBreweries'
 import { connect } from 'react-redux';
-import Map from './GoogleMap'
+// import Map from './GoogleMap'
 import './search.css'
 import Dropdown from './Dropdown'
-// import { Multiselect } from 'multiselect-react-dropdown'
-import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete"
-import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption} from "@reach/combobox"
+import { getGeocode, getLatLng } from "use-places-autocomplete"
+// import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption} from "@reach/combobox"
 
 class Search extends React.Component {
     constructor(){
@@ -28,10 +27,16 @@ class Search extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        const formatInput = this.state.input.split(' ').join('_').toLocaleLowerCase() 
-        debugger
-        this.handleSelect(formatInput)
-        this.props.fetchByCity(formatInput)
+        if (this.state.input !== ""){
+            const formatInput = this.state.input.split(' ').join('_').toLocaleLowerCase() 
+            this.handleSelect(formatInput)
+            this.props.fetchByCity(formatInput)
+ 
+        } else {
+            alert("Please Input Location")
+        }
+        // debugger
+        // this.props.placeMarkers(locations)
     }
     
     handleChange = e => {
@@ -115,18 +120,7 @@ export default connect(null, {fetchBreweriesType, fetchByCity})(Search)
 //             radius: 200 * 1000.
 //         }
 //     })
-//     const items = [
-//         {id: 1, type: "micro"},
-//         {id: 2, type: "nano"},
-//         {id: 3, type: "regional"},
-//         {id: 4, type: "brewpub"},
-//         {id: 5, type: "large"},
-//         {id: 6, type: "planning"},
-//         {id: 7, type: "bar"},
-//         {id: 8, type: "contract"},
-//         {id: 9, type: "proprietor"},
-//         {id: 10, type: "closed"}
-//     ]
+
     
 //     const handleSelect = async (address) => {
 //         setValue(address, false);
@@ -139,17 +133,6 @@ export default connect(null, {fetchBreweriesType, fetchByCity})(Search)
 //             console.log("error!")
 //             }
 //         }
-//     const handleInput = (e) => {
-//         setValue(e.target.value);
-//         // debugger
-//     }
-
-//     const handleSubmit = e => {
-//         e.preventDefault();
-//         debugger
-//         const formatInput = this.state.input.split(' ').join('_').toLocaleLowerCase() 
-//         this.props.fetchByCity(formatInput)
-//     }
 
 //     return (
 //         <div className="search-bar">

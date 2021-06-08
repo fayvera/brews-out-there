@@ -34,3 +34,5 @@
   } to package.json
   google maps key
 
+
+npm install --save react-geocode

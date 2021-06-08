@@ -24,8 +24,6 @@
 
   things needed to install: npm i use-places-autocomplete
   npm i @reach/combobox
-  npm i date-fns
-  npm i multiselect-react-dropdown
   npm install dotenv --save
   add:   "react-dotenv": {
     "whitelist": [

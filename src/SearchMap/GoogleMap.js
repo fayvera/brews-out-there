@@ -56,7 +56,7 @@ function Map(props){
     return(
         <div className="map-wrapper">
 
-            <Search panTo={panTo} />
+            <Search panTo={panTo} markers={<Marker/>}/>
             <Locate panTo={panTo}/>
 
             <div className="map-div">

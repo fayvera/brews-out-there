@@ -5,7 +5,7 @@ This App is
 
 ## Installation
 You can install this application by running 
-```https://github.com/fayvera/brews-out-there ```
+```git clone https://github.com/fayvera/brews-out-there.git ```
 
 You will also need to install the Rails API this application needs. To do so, you can navigate to https://github.com/fayvera/brew-api in your browser and follow the installation instructions and by starting the server on http://localhost:3000.
 

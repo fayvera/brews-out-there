@@ -73,7 +73,13 @@ function Map(props){
                         position={{
                             lat: Math.fround(brewery.latitude), 
                             lng: Math.fround(brewery.longitude)}}
-                        // icon={<i className="fas fa-beer"/>}
+                        icon={{
+                            url: '../stylesheet/beer-marker.png',
+                            scaledSize: new window.google.maps.Size(30, 30),
+                            origins: new window.google.maps.Point(0, 0),
+                            anchor: new window.google.maps.Point(15, 15)
+
+                        }}
                         onClick={() => {
                             setSelected(brewery)
                         }}

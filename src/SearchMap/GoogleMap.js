@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api'
 import Locate from './Locate'
 import Search from './search'
+import './beer-marker.jpg'
+
 
 
 const libraries = ["places"]
@@ -48,6 +50,7 @@ function Map(props){
         mapRef.current.setZoom(14)
     }, [])
 
+    const image = './beer-marker.jpg'
 
  
     if(loadError) return 'Error loading maps';
@@ -73,13 +76,13 @@ function Map(props){
                         position={{
                             lat: Math.fround(brewery.latitude), 
                             lng: Math.fround(brewery.longitude)}}
-                        icon={{
-                            url: '../stylesheet/beer-marker.png',
-                            scaledSize: new window.google.maps.Size(30, 30),
-                            origins: new window.google.maps.Point(0, 0),
-                            anchor: new window.google.maps.Point(15, 15)
+                        // icon={{
+                        //    url: image
+                        // //     // scaledSize: new window.google.maps.Size(40, 60),
+                        // //     // origins: new window.google.maps.Point(0, 0),
+                        // //     // anchor: new window.google.maps.Point(15, 15)
 
-                        }}
+                        // }}
                         onClick={() => {
                             setSelected(brewery)
                         }}

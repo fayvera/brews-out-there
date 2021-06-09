@@ -40,7 +40,7 @@ class Search extends React.Component {
         } else {
             alert("Please Input Location")
         }
-        // debugger
+        // map over responses and if no lat/lng, convert address using Geocode
         // this.props.placeMarkers(locations)
     }
     

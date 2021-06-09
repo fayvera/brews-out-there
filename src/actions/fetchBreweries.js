@@ -77,6 +77,11 @@ export const fetchByCity = input => {
     }
 }
 
+export const updateAddress = input => {
+    debugger
+    return {type: "UPDATE_BREWERY", payload: input}
+}
+
 
 export const fetchByType = input => {
     return function(dispatch) {

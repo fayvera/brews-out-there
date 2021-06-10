@@ -1,6 +1,9 @@
-.fa-search, .fa-ellipsis-v{
+.fa-search{
     cursor: pointer;
     padding: 10px;
+    position: absolute;
+    top: 148px;
+    left: 460px;
 }
 
 .search-bar {
@@ -8,7 +11,7 @@
     border-radius: 4px;
     /* height: 25px; */
     width: auto;
-    z-index: 10;
+    /* z-index: 10; */
     /* position: absolute; */
     /* top: 1rem;
     left: 50%;
@@ -50,7 +53,7 @@
     z-index: 11;
     background: #e5e7ff;
     padding: 5px;
-    height: 40px;
+    /* height: 40px; */
     width: 200px;
 }
 
@@ -130,7 +133,7 @@ li :first-of-type > button {
     border-bottom: 1px solid #ccc;
     position: absolute;
     right: 100px;
-    top: 198px;
+    top: 210px;
     float: right;
     z-index: 10;
     text-align: left;

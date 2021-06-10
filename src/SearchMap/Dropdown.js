@@ -48,7 +48,10 @@ function Dropdown({title, items, multiSelect = false}){
                     <p className="dd-header__title--bold">{title}</p>
                 </div>
                 <div className="dd-header__action">
-                    <p>{open ? "Done" : "Open"}</p>
+                    <p>{open ? 
+                    <i class="fas fa-window-close" />
+                    : <i class="fas fa-ellipsis-v"/>}
+                    </p>
                 </div>
             </div>
             {open && (

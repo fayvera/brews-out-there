@@ -19,6 +19,7 @@ class Breweries extends Component {
             liked: !this.state.liked
         })
         this.breweries()
+        // action creator 
     }
 
 

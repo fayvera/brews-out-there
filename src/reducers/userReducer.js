@@ -9,7 +9,12 @@ const userReducer = (state = {}, action) => {
     case "LOG_OUT":
         return {}
     // case "UPDATE_USER":
+
+
+
         // when user likes a brewery
+
+        
     // case "LIKE":
     //   index = state.findIndex(quote => quote.id === action.quoteId)
     //   quote = state[index]

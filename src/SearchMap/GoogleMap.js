@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useRef} from 'react'
+import React, {useState, useCallback, useEffect, useRef} from 'react'
 import './search.css'
 import { connect } from 'react-redux'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api'
@@ -35,7 +35,6 @@ function Map(props){
 
 
     const onMapClick = useCallback((event) => {
-        // debugger
         setMarkers((current) => [
             ...current,
             {
@@ -45,40 +44,26 @@ function Map(props){
         ]
         )}, [])
 
-    // const updateAddresses = () => {
-    //     props.breweries.map((b, index) => {
-    //         b.latitude ? null : getAddress(b)
-    //     })
-    // }
-
-
-
+    useEffect(() => {
+        props.breweries.map((brewery) => {
+           return (brewery.latitude ? null : getAddress(brewery))
+        })
+    })
+ 
     function getAddress(b){
-        // debugger
         const address = `${b.street} ${b.city} ${b.state} ${b.postal_code}`;
         getGeocode({ address })
         .then((results) => getLatLng(results[0]))
-        .then(({ lat, lng}) => {
-                console.log(b)
-            // debugger
-            // const update = setMarkers(
-            //     (b) => [
-            //     ...b,
-            //     {
-            //         latitude: lat,
-            //         longitude: lng
-            //     }
-            // ], [])
-            // debugger
-            // updateAddress(update)
-        }
-    
-
-            // updateAddress()
-
-            // debugger                    
-            // )
-        )
+        .then(({ lat, lng }) => {
+            setMarkers([
+                ...b,
+                {
+                    latitude: lat,
+                    longitude: lng
+                }
+            ])
+        })
+        .then(resp => updateAddress(resp))
         .catch((e) => console.log(e))
     }
 
@@ -112,7 +97,7 @@ function Map(props){
                 onLoad={onMapLoad}
                 onClick={onMapClick}>
                     {props.breweries.map((brewery, index) => (
-                    brewery.latitude ? 
+                    // brewery.latitude ? 
                         <Marker 
 
                         key={index}
@@ -145,8 +130,9 @@ function Map(props){
                         })    
                         
                         </Marker>
-                    : 
-                        getAddress(brewery)
+                    // : 
+                    // null
+                        // getAddress(brewery)
                     ))}
                         
                 </GoogleMap>

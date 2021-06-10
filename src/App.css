@@ -106,14 +106,3 @@
   left: 0;
 }
 
-.login, .signup{
-  /* display: grid; */
-  display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-}
-
-.login_form{
-  padding: 20px;
-}

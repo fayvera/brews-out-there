@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { logout } from '../actions/user.js'
-// import User from './User'
+import './user.css'
 import { withRouter } from "react-router";
 
 

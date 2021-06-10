@@ -5,7 +5,7 @@
             return action.payload
         case "UPDATE_BREWERY":
             debugger    
-            return
+            return action.payload
         default: 
             return state
     }

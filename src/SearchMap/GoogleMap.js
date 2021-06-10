@@ -8,6 +8,7 @@ import './beer-marker.jpg'
 // import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete"
 import { getLatLng, getGeocode } from 'use-places-autocomplete'
 import {updateAddress} from '../actions/fetchBreweries'
+import Breweries from '../Brews/Breweries.js'
 
 
 
@@ -54,16 +55,16 @@ function Map(props){
         const address = `${b.street} ${b.city} ${b.state} ${b.postal_code}`;
         getGeocode({ address })
         .then((results) => getLatLng(results[0]))
-        .then(({ lat, lng }) => {
-            setMarkers([
-                ...b,
-                {
-                    latitude: lat,
-                    longitude: lng
-                }
-            ])
-        })
-        .then(resp => updateAddress(resp))
+        // .then(({ lat, lng }) => {
+        //     setMarkers([
+        //         ...b,
+        //         {
+        //             latitude: lat,
+        //             longitude: lng
+        //         }
+        //     ])
+        // })
+        // .then(resp => updateAddress(resp))
         .catch((e) => console.log(e))
     }
 
@@ -97,7 +98,6 @@ function Map(props){
                 onLoad={onMapLoad}
                 onClick={onMapClick}>
                     {props.breweries.map((brewery, index) => (
-                    // brewery.latitude ? 
                         <Marker 
 
                         key={index}
@@ -122,17 +122,16 @@ function Map(props){
                         }}>
                             <div>
                                 <h2>{selected.name}</h2>
-                                <h5>Brewery type: {selected.brewery_type}</h5>
+                                <h5>Brewery type: {selected.brewery_type}</h5> 
+                                <Breweries />
                                 {brewery.website_url ? <h5>Website: {brewery.website_url}</h5>  : null}
                                 {brewery.phone ? <h5>Phone Number: {brewery.phone}</h5>  : null}
+
                             </div>
                         </InfoWindow>) : null
                         })    
                         
                         </Marker>
-                    // : 
-                    // null
-                        // getAddress(brewery)
                     ))}
                         
                 </GoogleMap>

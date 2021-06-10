@@ -52,6 +52,13 @@ export const currentUser = (config) => {
     }
 }
 
+
+export const like = (brewery) => {
+    return function(dispatch){
+        fetch(`http://localhost:3000/api/users`)
+    }
+}
+
 // export const allUsers = () => {
 //     return function(dispatch){
 //         fetch('http://localhost:3000/api/users')

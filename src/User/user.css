@@ -1,11 +1,97 @@
 .login, .signup{
     /* display: grid; */
+    border-radius: 28px;
     display: flex;
       flex-direction: column;
       flex-wrap: nowrap;
       align-items: center;
+    width: 500px;  
+    background: #fff;
+    overflow: hidden;
+  box-shadow: 0 3px 20px 0 rgb(0 0 0 / 10%);
+  -moz-box-shadow: 0 3px 20px 0 rgba(0,0,0,.1);
+  -webkit-box-shadow: 0 3px 20px 0 rgb(0 0 0 / 10%);
   }
   
-  .login_form{
+  .login_form, .signup_form{
     padding: 20px;
+  }
+
+  .form-wrapper{
+    /* width: 100%; */
+    min-height: 50vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    position: relative;
+  }
+
+ input{
+      border-radius: 8px;
+      padding: 2px;
+      margin: 0.7rem;
+      width: 200px;
+      font-size: 15px;
+      line-height: 1.2;
+        position: relative;
+        display: block;
+   
+        height: 35px;
+        background: #ebebeb;
+        border-radius: 27px;
+        padding: 0 35px;
+  }
+  
+  input ::placeholder{
+      font-style: bold;
+  }
+
+  .login_form h1, .signup_form h1 {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      padding-top: 20px;
+      padding-bottom: 39px;
+  }
+
+  .login__btn, .submit__btn{
+      cursor: pointer;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 40%;
+    height: 40px;
+    border-radius: 25px;
+    font-size: 15px;
+    /* color: rgb(140, 128, 128); */
+    line-height: 1.2;
+    text-transform: uppercase; 
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+    background-color: #57b846;
+    border-radius: 25px;
+    font-family: Ubuntu-Bold;
+    font-size: 15px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
   }

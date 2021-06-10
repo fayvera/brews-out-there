@@ -1,5 +1,5 @@
  const breweryReducer = (state = [], action) => {
-     debugger
+    //  debugger
     switch (action.type){
         case "FETCH_BREWERIES":
             return action.payload

@@ -52,34 +52,36 @@ class SignUp extends Component {
 
     render(){
         return(
-            <div className='signup'>
-                <form className="signup_form" onSubmit={this.handleSubmit}>
-                    <h1>Sign Up</h1>
-                    <input name="name"
-                    type="text" 
-                    placeholder="Name" 
-                    value={this.state.name} 
-                    onChange={this.handleChange}/><br></br>
-                    <input 
-                    name="email"
-                    type="email" 
-                    placeholder="Email"
-                    value={this.state.email}
-                    onChange={this.handleChange}
-                    /><br></br>
-                    <input name="password"
-                    type="password" 
-                    placeholder="Password"
-                    value={this.state.password}
-                    onChange={this.handleChange}/><br></br>
-                    <input 
-                    type="password" 
-                    placeholder="Confirm Password"
-                    name="confirmPassword"
-                    value={this.state.confirmPassword}
-                    onChange={this.handleChange}/><br></br>
-                    <button type="submit" className="submit__btn" >Sign Up</button>
-                </form>
+            <div className="form-wrapper">
+                <div className='signup'>
+                    <form className="signup_form" onSubmit={this.handleSubmit}>
+                        <h1>Sign Up</h1>
+                        <input name="name"
+                        type="text" 
+                        placeholder="Name" 
+                        value={this.state.name} 
+                        onChange={this.handleChange}/><br></br>
+                        <input 
+                        name="email"
+                        type="email" 
+                        placeholder="Email"
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                        /><br></br>
+                        <input name="password"
+                        type="password" 
+                        placeholder="Password"
+                        value={this.state.password}
+                        onChange={this.handleChange}/><br></br>
+                        <input 
+                        type="password" 
+                        placeholder="Confirm Password"
+                        name="confirmPassword"
+                        value={this.state.confirmPassword}
+                        onChange={this.handleChange}/><br></br>
+                        <button type="submit" className="submit__btn" >Sign Up</button>
+                    </form>
+                </div>         
             </div>
         )
     }

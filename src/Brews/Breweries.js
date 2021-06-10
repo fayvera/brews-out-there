@@ -18,6 +18,7 @@ class Breweries extends Component {
         this.setState({
             liked: !this.state.liked
         })
+        this.breweries()
     }
 
 
@@ -25,8 +26,8 @@ class Breweries extends Component {
         return(
             <div className="like-btn">
                 <button 
-                onClick={this.handleLike}>
-
+                onClick={this.handleLike}
+                >
                 {this.state.liked === false ? <i className="far fa-heart"></i>
                  : <i class="fas fa-heart"></i> 
                  }
@@ -36,8 +37,11 @@ class Breweries extends Component {
         )
     }
 }
-// const mapStateToProps = state => {
+const mapStateToProps = state => {
+    // debugger
+    // return {
+    //     liked: state.liked
+    // }
+}
 
-// }
-
-export default Breweries
+export default connect(mapStateToProps)(Breweries)

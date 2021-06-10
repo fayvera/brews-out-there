@@ -55,16 +55,16 @@ function Map(props){
         const address = `${b.street} ${b.city} ${b.state} ${b.postal_code}`;
         getGeocode({ address })
         .then((results) => getLatLng(results[0]))
-        // .then(({ lat, lng }) => {
-        //     setMarkers([
-        //         ...b,
-        //         {
-        //             latitude: lat,
-        //             longitude: lng
-        //         }
-        //     ])
-        // })
-        // .then(resp => updateAddress(resp))
+        .then(({ lat, lng }) => {
+            setMarkers([
+                ...b,
+                {
+                    latitude: lat,
+                    longitude: lng
+                }
+            ])
+        })
+        .then(resp => updateAddress(resp))
         .catch((e) => console.log(e))
     }
 
@@ -99,7 +99,7 @@ function Map(props){
                 onClick={onMapClick}>
                     {props.breweries.map((brewery, index) => (
                         <Marker 
-
+                        
                         key={index}
                         position={{
                             lat: Math.fround(brewery.latitude), 
@@ -120,6 +120,8 @@ function Map(props){
                             onCloseClick={() => {
                             setSelected(null);
                         }}>
+                            {/* Infowindow is popping up more than once */}
+                            {/* Liked state is not persisting */}
                             <div>
                                 <h2>{selected.name}</h2>
                                 <h5>Brewery type: {selected.brewery_type}</h5> 

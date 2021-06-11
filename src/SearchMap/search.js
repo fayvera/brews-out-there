@@ -1,7 +1,6 @@
 import React from 'react'
 import {fetchBreweriesType, fetchByCity} from '../actions/fetchBreweries'
 import { connect } from 'react-redux';
-// import Map from './GoogleMap'
 import './search.css'
 import Dropdown from './Dropdown'
 import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete"
@@ -35,8 +34,6 @@ class Search extends React.Component {
         } else {
             alert("Please Input Location")
         }
-        // map over responses and if no lat/lng, convert address using Geocode
-        // this.props.placeMarkers(locations)
     }
     
     handleChange = e => {

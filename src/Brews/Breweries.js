@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './breweries.css'
 import { connect } from 'react-redux'
-
+import { like } from '../actions/user'
 
 class Breweries extends Component {
     constructor() {
@@ -18,8 +18,13 @@ class Breweries extends Component {
         this.setState({
             liked: !this.state.liked
         })
-        this.breweries()
+        // this.breweries()
+        this.sendLike()
         // action creator 
+    }
+
+    sendLike = () => {
+            debugger
     }
 
 
@@ -45,4 +50,4 @@ const mapStateToProps = state => {
     // }
 }
 
-export default connect(mapStateToProps)(Breweries)
+export default connect(mapStateToProps, {like})(Breweries)

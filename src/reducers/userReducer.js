@@ -8,13 +8,15 @@ const userReducer = (state = {}, action) => {
         return action.payload
     case "LOG_OUT":
         return {}
-    // case "UPDATE_USER":
-
+    case "UPDATE_USER":
+        debugger
+        const brewery = state.find(brewery => brewery.id === action.payload.id)
+        // return  brewery.state.liked ? unlike : like
 
 
         // when user likes a brewery
 
-        
+
     // case "LIKE":
     //   index = state.findIndex(quote => quote.id === action.quoteId)
     //   quote = state[index]

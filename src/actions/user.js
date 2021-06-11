@@ -53,9 +53,16 @@ export const currentUser = (config) => {
 }
 
 
-export const like = (brewery) => {
+export const like = (info) => {
     return function(dispatch){
-        fetch(`http://localhost:3000/api/users`)
+        fetch(`http://localhost:3000/api/users`, {
+            method: "POST", 
+            credentials: 'include', 
+            body: JSON.stringify({...info})
+        })
+        .then(r => r.json())
+        .then(resp => dispatch({ type: 'UPDATE_USER', payload: resp}))
+        .catch(err => console.log(err))
     }
 }
 

@@ -26,8 +26,8 @@ class UserContainer extends Component {
     isLoggedIn = () => {
         if (!this.props.validUser){
             // if not logged in
-                if(this.props.user.status === 500){
-                        this.props.logout()
+            if(this.props.user.status === 500){
+                this.props.logout()
             }
             return (
                 <>

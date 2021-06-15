@@ -24,7 +24,9 @@ class UserContainer extends Component {
     }
 
     isLoggedIn = () => {
-        if (Object.keys(this.props.user).length === 0 || this.props.user === undefined){
+        // debugger
+        if (!this.props.validUser){
+            // if not loggeding
             return (
                 <>
                 <Switch>

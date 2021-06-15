@@ -18,11 +18,11 @@ import About from './About'
 class App extends React.Component{
 
 
-  // login functionality is not working 
 
+   validUser = Object.keys(this.props.user).length > 0 && this.props.user.status !== 500 && this.props.user !== undefined
 
   loggedIn = () => {
-    if (this.props.user !== undefined && Object.keys(this.props.user).length > 0){  
+    if (this.validUser){  
       return(
         // if user is logged in, they should be taken to user component "/home"
         // user shouldn't be able to access any of these routes if not logged in 
@@ -48,7 +48,7 @@ class App extends React.Component{
     return(
       <div className="main-page">
         <NavBar />
-        <UserContainer />
+        <UserContainer validUser={this.validUser}/>
         {this.loggedIn()}
         {/* <Landing /> */}
         {/* include welcome message */}

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './navbar.css'
-// import brew from './brew.png'
 import { MenuItems, Access} from './MenuItems'
 import {connect} from 'react-redux'
 import { withRouter} from "react-router";
@@ -24,7 +23,8 @@ class NavBar extends Component {
     }
 
     loggedIn = () => {
-           if(this.props.user === undefined || Object.keys(this.props.user).length === 0 ) { 
+           if(!this.props.validuser) { 
+            //    if user is not logged in
             return (
                 <div className="navbar-menu">
                     {Access.map((item, index) => {

@@ -1,16 +1,10 @@
 import './App.css';
 import React from 'react'
-import { Redirect, Route } from 'react-router-dom'
-// import BreweriesContainer from './Brews/BreweriesContainer'
+import { Route } from 'react-router-dom'
 import NavBar from './NavBar/NavBar'
 import UserContainer from './User/UserContainer'
 import {connect} from 'react-redux'
-// import User from './User/User'
-// import Logout from './User/UserLogout'
-// import Login from './User/UserLogin'
-// import SignUp from './User/UserSignUp'
 import Landing from './Landing'
-// import Favorites from './User/UserFavorites'
 import About from './About'
 
 
@@ -24,19 +18,12 @@ class App extends React.Component{
   loggedIn = () => {
     if (this.validUser){  
       return(
-        // if user is logged in, they should be taken to user component "/home"
-        // user shouldn't be able to access any of these routes if not logged in 
         <>  
-          {/* <Route path="/home" component={ User } /> */}
-          {/* <Route path="/breweries" component={ BreweriesContainer } /> */}
-          {/* <Route path="/favorites" component={ Favorites } />
-          <Route path="/logout" component={ Logout }/> */}
           <Route path="/about" component={About} />
         </>
       )
     } else {
       return(
-        // create landing page when user is not logged in 
         <>
           <Route path="/" component={Landing}/>
         </>
@@ -47,11 +34,9 @@ class App extends React.Component{
   render(){ 
     return(
       <div className="main-page">
-        <NavBar />
+        <NavBar validUser={this.validUser}/>
         <UserContainer validUser={this.validUser}/>
         {this.loggedIn()}
-        {/* <Landing /> */}
-        {/* include welcome message */}
       </div>
     )
   }

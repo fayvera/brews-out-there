@@ -12,11 +12,11 @@ import About from './About'
 class App extends React.Component{
 
 
+  validUser = () => (Object.keys(this.props.user).length > 0 && this.props.user.status !== 500 && this.props.user !== undefined)
 
-   validUser = Object.keys(this.props.user).length > 0 && this.props.user.status !== 500 && this.props.user !== undefined
 
   loggedIn = () => {
-    if (this.validUser){  
+    if (this.validUser()){  
       return(
         <>  
           <Route path="/about" component={About} />
@@ -34,8 +34,8 @@ class App extends React.Component{
   render(){ 
     return(
       <div className="main-page">
-        <NavBar validUser={this.validUser}/>
-        <UserContainer validUser={this.validUser}/>
+        <NavBar validUser={this.validUser()}/>
+        <UserContainer validUser={this.validUser()}/>
         {this.loggedIn()}
       </div>
     )

@@ -38,6 +38,7 @@ class UserContainer extends Component {
                 </>
                 )
             } else {
+                //  if user is logged in
                 return(
                     <div>
                         <Switch>

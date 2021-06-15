@@ -30,12 +30,7 @@ class Login extends Component {
         // check credentials
         this.props.login(data)
         if(Object.keys(this.props).includes("user")){
-            if(this.props.user.status === 500){
-                debugger
-                this.props.user = {}
-            } else {
             this.props.history.push('/home')
-            }
         } else {
             alert(
                 "Something went wrong!"

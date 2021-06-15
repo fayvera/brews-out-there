@@ -132,7 +132,7 @@ li :first-of-type > button {
     border: 0;
     border-bottom: 1px solid #ccc;
     position: absolute;
-    right: 100px;
+    right: 150px;
     top: 210px;
     float: right;
     z-index: 10;

@@ -9,7 +9,16 @@ function Favorites(){
     return(
         <div className="usr_favorites_div">
             <h1>My Favorite Places:</h1>
-            
+                <div className="list-brew">
+                    {/* {liked.map((brewery, index) => {
+                        <div key={index}> 
+                            <h3>{brewery.name}</h3>
+                            <p> Info about brewery</p>
+                        </div> */}
+                        // add link to brewery 
+                        // location and info on brewery
+                    {/* })} */}
+                </div>
         </div>
     )
 }
@@ -17,7 +26,7 @@ function Favorites(){
 const mapStateToProps = state => {
     debugger
     return {
-        liked: state.user.liked 
+        liked: state.user.breweries 
     }
 }
 

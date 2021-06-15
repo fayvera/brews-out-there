@@ -118,7 +118,7 @@ function Map(props){
                             <div>
                                 <h2>{selected.name}</h2>
                                 <h5>Brewery type: {selected.brewery_type}</h5> 
-                                <Breweries />
+                                <Breweries brewery={selected}/>
                                 {brewery.website_url ? <h5>Website: {brewery.website_url}</h5>  : null}
                                 {brewery.phone ? <h5>Phone Number: {brewery.phone}</h5>  : null}
 

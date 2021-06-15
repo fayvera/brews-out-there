@@ -10,21 +10,24 @@ class Breweries extends Component {
             liked: false
         }
     }
-    breweries = (props) => {
-        console.log(props)
-    }
+    // breweries = (props) => {
+    //     console.log(props)
+    //     debugger
+    // }
 
     handleLike = () => {
         this.setState({
             liked: !this.state.liked
         })
-        // this.breweries()
-        this.sendLike()
+        debugger
+        const brewery = this.props.brewery
+        this.sendLike(brewery)
         // action creator 
     }
 
-    sendLike = () => {
-            debugger
+    sendLike = (brewery) => {
+        debugger
+        
     }
 
 
@@ -44,10 +47,9 @@ class Breweries extends Component {
     }
 }
 const mapStateToProps = state => {
-    // debugger
-    // return {
-    //     liked: state.liked
-    // }
+    return {
+        liked: state.user.breweries
+    }
 }
 
 export default connect(mapStateToProps, {like})(Breweries)

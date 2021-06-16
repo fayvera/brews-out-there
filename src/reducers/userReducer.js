@@ -8,8 +8,12 @@ const userReducer = (state = {}, action) => {
         return action.payload
     case "LOG_OUT":
         return {}
-    // case "UPDATE_USER":
-    //     debugger
+    case "UPDATE_USER":
+        debugger
+        return Object.assign({}, ...state.breweries, action.payload)
+            // ...state, s
+            // action.payload
+        
     //     const brewery = state.find(brewery => brewery.id === action.payload.id)
         // return  brewery.state.liked ? unlike : like
 

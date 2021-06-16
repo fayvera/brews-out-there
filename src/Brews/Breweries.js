@@ -3,6 +3,7 @@ import './breweries.css'
 import { connect } from 'react-redux'
 import { like } from '../actions/user'
 
+
 class Breweries extends Component {
     constructor() {
         super();
@@ -10,31 +11,28 @@ class Breweries extends Component {
             liked: false
         }
     }
-    // breweries = (props) => {
-    //     console.log(props)
-    //     debugger
-    // }
+    heart = () => {
+        debugger
+        this.state.user.breweries.find(this.props.selected) ? this.setState({
+            liked: true
+        }) : this.setState({
+            liked: false
+        })
+    }
 
     handleLike = () => {
         this.setState({
             liked: !this.state.liked
         })
-        debugger
-        const brewery = this.props.brewery
-        this.sendLike(brewery)
-        // action creator 
+        const info = {brewery: this.props.brewery, user: this.props.user}
+        this.props.like(info)
     }
-
-    sendLike = (brewery) => {
-        debugger
-        
-    }
-
 
     render(){
         return(
             <div className="like-btn">
                 <button 
+                onLoad={this.heart}
                 onClick={this.handleLike}
                 >
                 {this.state.liked === false ? <i className="far fa-heart"></i>
@@ -47,8 +45,10 @@ class Breweries extends Component {
     }
 }
 const mapStateToProps = state => {
+    // debugger
     return {
-        liked: state.user.breweries
+        liked: state.user.breweries,
+        user: state.user
     }
 }
 

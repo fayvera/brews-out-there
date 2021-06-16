@@ -23,7 +23,7 @@ class NavBar extends Component {
     }
 
     loggedIn = () => {
-           if(!this.props.validuser) { 
+           if(!this.props.validUser) { 
             //    if user is not logged in
             return (
                 <div className="navbar-menu">

@@ -21,6 +21,7 @@ class Breweries extends Component {
     }
 
     handleLike = () => {
+        // debugger
         this.setState({
             liked: !this.state.liked
         })

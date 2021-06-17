@@ -11,6 +11,7 @@ class Search extends React.Component {
         super();
         this.state ={
             input: "",
+            searches: []
         }
     }
 
@@ -23,14 +24,21 @@ class Search extends React.Component {
             console.log("error!")
             }
         }
+    
+
 
     handleSubmit = event => {
         event.preventDefault();
+        // this.state.searches.push(this.state.input)
+        // console.log(this.state.searches)
+        // debugger
+    
         if (this.state.input !== ""){
             const formatInput = this.state.input.split(' ').join('_').toLocaleLowerCase() 
             this.handleSelect(formatInput)
             this.props.fetchByCity(formatInput)
- 
+
+            
         } else {
             alert("Please Input Location")
         }
@@ -89,7 +97,6 @@ class Search extends React.Component {
                     {/* <i className="fas fa-ellipsis-v" onClick={this.handleFilter}></i> */}
                 </form>
                     <Dropdown title="Filter" items={this.items} multiSelect/>
-
             </div>
         )   
     }
@@ -97,8 +104,5 @@ class Search extends React.Component {
 
 
 export default connect(null, {fetchBreweriesType, fetchByCity})(Search)
-
-
-
 
 

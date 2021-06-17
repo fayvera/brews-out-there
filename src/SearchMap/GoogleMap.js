@@ -74,6 +74,16 @@ function Map(props){
 
     const image = './beer-marker.jpg'
 
+    const heart = (brewery) => {
+        if (props.user.breweries.includes(brewery)){
+            debugger
+            console.log(brewery)
+        } else {
+            debugger
+            console.log("not it")
+        }
+        
+    }
  
     if(loadError) return 'Error loading maps';
     if(!isLoaded) return "Loading Maps";
@@ -98,15 +108,9 @@ function Map(props){
                         position={{
                             lat: Math.fround(brewery.latitude), 
                             lng: Math.fround(brewery.longitude)}}
-                        // icon={{
-                        // //    url: image
-                        //     scaledSize: new window.google.maps.Size(40, 60),
-                        //     origins: new window.google.maps.Point(0, 0),
-                        //     anchor: new window.google.maps.Point(15, 15)
-
-                        // }}
                         onClick={() => {
                             setSelected(brewery)
+                            heart(brewery)
 
                         }}
                         > 
@@ -114,11 +118,14 @@ function Map(props){
                             <InfoWindow position={{ lat: selected.latitude, lng: selected.longitude }} 
                             onCloseClick={() => {
                             setSelected(null);
+                            
                         }}>
                             <div>
                                 <h2>{selected.name}</h2>
                                 <h5>Brewery type: {selected.brewery_type}</h5> 
-                                <Breweries brewery={selected}/>
+                                <Breweries brewery={selected}
+                                // { props.user.breweries.includes(brewery) ? heart={true} : heart={false}}
+                                />
                                 {brewery.website_url ? <h5>Website: {brewery.website_url}</h5>  : null}
                                 {brewery.phone ? <h5>Phone Number: {brewery.phone}</h5>  : null}
 
@@ -137,7 +144,8 @@ function Map(props){
 
 const mapStateToProps = state => {
     return {
-        breweries: state.breweries
+        breweries: state.breweries,
+        user: state.user
     }
 }
 

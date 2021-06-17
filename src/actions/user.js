@@ -54,7 +54,6 @@ export const currentUser = (config) => {
 
 
 export const like = (info) => {
-    debugger
     return function(dispatch){
         fetch(`http://localhost:3000/api/users/${info.user.id}`, {
             method: "PATCH", 

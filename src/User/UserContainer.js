@@ -68,4 +68,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { currentUser, login, signup, logout})(UserContainer)
+export default connect(mapStateToProps, { currentUser, login, signup, logout})(UserContainer) 

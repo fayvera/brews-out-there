@@ -7,8 +7,12 @@ import { like } from '../actions/user'
 class Breweries extends Component {
     constructor() {
         super();
+        debugger
+        this.props.user.breweries.include(this.props.selected) ? 
         this.state = {
             liked: false
+        } : this.state ={
+            liked: true
         }
     }
     heart = () => {
@@ -25,7 +29,16 @@ class Breweries extends Component {
         this.setState({
             liked: !this.state.liked
         })
+        debugger
         const info = {brewery: this.props.brewery, user: this.props.user}
+        // const config = {
+        // method: "PATCH", 
+        // credentials: 'include', 
+        // headers: {'Content-Type': 'application/json',
+        // 'Accept': 'application/json'},
+        // body: JSON.stringify({brewery: {...this.props.brewery}})
+        // }
+
         this.props.like(info)
     }
 

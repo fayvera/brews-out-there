@@ -9,7 +9,7 @@ const userReducer = (state = {}, action) => {
     case "LOG_OUT":
         return {}
     case "UPDATE_USER":
-        // debugger
+        debugger
         return Object.assign({}, ...state.breweries, action.payload)
             // ...state, s
             // action.payload

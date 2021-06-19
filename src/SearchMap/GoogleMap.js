@@ -110,7 +110,7 @@ function Map(props){
                             lng: Math.fround(brewery.longitude)}}
                         onClick={() => {
                             setSelected(brewery)
-                            heart(brewery)
+                            // heart(brewery)
 
                         }}
                         > 

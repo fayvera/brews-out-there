@@ -76,13 +76,10 @@ function Map(props){
 
     const heart = (brewery) => {
         if (props.user.breweries.includes(brewery)){
-            debugger
-            console.log(brewery)
+            return true
         } else {
-            debugger
-            console.log("not it")
+            return false
         }
-        
     }
  
     if(loadError) return 'Error loading maps';
@@ -110,8 +107,7 @@ function Map(props){
                             lng: Math.fround(brewery.longitude)}}
                         onClick={() => {
                             setSelected(brewery)
-                            // heart(brewery)
-
+                            heart(brewery)
                         }}
                         > 
                         {selected === brewery ? (
@@ -124,7 +120,7 @@ function Map(props){
                                 <h2>{selected.name}</h2>
                                 <h5>Brewery type: {selected.brewery_type}</h5> 
                                 <Breweries brewery={selected}
-                                // { props.user.breweries.includes(brewery) ? heart={true} : heart={false}}
+                                    heart={heart}
                                 />
                                 {brewery.website_url ? <h5>Website: {brewery.website_url}</h5>  : null}
                                 {brewery.phone ? <h5>Phone Number: {brewery.phone}</h5>  : null}

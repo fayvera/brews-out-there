@@ -6,50 +6,47 @@ import { like } from '../actions/user'
 
 class Breweries extends Component {
     constructor() {
-        super();
-        debugger
-        this.props.user.breweries.include(this.props.selected) ? 
+        super();        
         this.state = {
             liked: false
-        } : this.state ={
-            liked: true
         }
     }
-    heart = () => {
-        debugger
-        this.state.user.breweries.find(this.props.selected) ? this.setState({
+    
+    heart = (brewery) => {
+        if(this.state !== undefined){
+        this.props.user.breweries.includes(brewery) ? 
+        this.setState({
             liked: true
-        }) : this.setState({
+        })
+         : 
+         this.setState({
             liked: false
         })
+        } else {
+            this.setState({
+                liked: false
+            })
+        }
     }
 
     handleLike = () => {
-        // debugger
         this.setState({
             liked: !this.state.liked
         })
         debugger
         const info = {brewery: this.props.brewery, user: this.props.user}
-        // const config = {
-        // method: "PATCH", 
-        // credentials: 'include', 
-        // headers: {'Content-Type': 'application/json',
-        // 'Accept': 'application/json'},
-        // body: JSON.stringify({brewery: {...this.props.brewery}})
-        // }
-
         this.props.like(info)
     }
 
     render(){
+        debugger
         return(
             <div className="like-btn">
                 <button 
-                onLoad={this.heart}
+                // onLoad={this.heart}
                 onClick={this.handleLike}
                 >
-                {this.state.liked === false ? <i className="far fa-heart"></i>
+                {this.props.heart === false ? <i className="far fa-heart"></i>
                  : <i class="fas fa-heart"></i> 
                  }
             </button>

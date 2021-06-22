@@ -74,13 +74,6 @@ function Map(props){
 
     const image = './beer-marker.jpg'
 
-    const heart = (brewery) => {
-        if (props.user.breweries.includes(brewery)){
-            return true
-        } else {
-            return false
-        }
-    }
  
     if(loadError) return 'Error loading maps';
     if(!isLoaded) return "Loading Maps";
@@ -107,7 +100,6 @@ function Map(props){
                             lng: Math.fround(brewery.longitude)}}
                         onClick={() => {
                             setSelected(brewery)
-                            heart(brewery)
                         }}
                         > 
                         {selected === brewery ? (
@@ -120,7 +112,6 @@ function Map(props){
                                 <h2>{selected.name}</h2>
                                 <h5>Brewery type: {selected.brewery_type}</h5> 
                                 <Breweries brewery={selected}
-                                    heart={heart}
                                 />
                                 {brewery.website_url ? <h5>Website: {brewery.website_url}</h5>  : null}
                                 {brewery.phone ? <h5>Phone Number: {brewery.phone}</h5>  : null}

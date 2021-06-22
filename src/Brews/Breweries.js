@@ -12,22 +12,22 @@ class Breweries extends Component {
         }
     }
     
-    heart = (brewery) => {
-        if(this.state !== undefined){
-        this.props.user.breweries.includes(brewery) ? 
-        this.setState({
-            liked: true
-        })
-         : 
-         this.setState({
-            liked: false
-        })
-        } else {
-            this.setState({
-                liked: false
-            })
-        }
-    }
+    // heart = (brewery) => {
+    //     if(this.state !== undefined){
+    //     this.props.user.breweries.includes(brewery) ? 
+    //     this.setState({
+    //         liked: true
+    //     })
+    //      : 
+    //      this.setState({
+    //         liked: false
+    //     })
+    //     } else {
+    //         this.setState({
+    //             liked: false
+    //         })
+    //     }
+    // }
 
     handleLike = () => {
         this.setState({
@@ -43,12 +43,11 @@ class Breweries extends Component {
         return(
             <div className="like-btn">
                 <button 
-                // onLoad={this.heart}
                 onClick={this.handleLike}
                 >
-                {this.props.heart === false ? <i className="far fa-heart"></i>
-                 : <i class="fas fa-heart"></i> 
-                 }
+                {this.props.liked.includes(this.props.brewery) ?  <i className="fas fa-heart"></i>
+                 : <i class="far fa-heart"></i>}
+
             </button>
                
             </div>

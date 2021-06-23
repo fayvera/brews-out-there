@@ -1,30 +1,35 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import { useState } from 'react'
 
-function Favorites(){
+function Favorites(props){
 
-    // const places = User.favorites.map((place, index) => {
-    //     // retrieve data from api
-    // })
+    // const [likes, setLiked] = useState([])
+    // const {liked} = props.liked
+    debugger
+
     return(
         <div className="usr_favorites_div">
             <h1>My Favorite Places:</h1>
-                <div className="list-brew">
-                    {/* {liked.map((brewery, index) => {
-                        <div key={index}> 
+                <div className="list-brew"> 
+                    {props.liked.map((brewery, index) => (
+                        <div classname="fav-brewery" key={index}> 
                             <h3>{brewery.name}</h3>
                             <p> Info about brewery</p>
-                        </div> */}
+                            <h4>{brewery.type}</h4>
+                        </div>
+
+          
                         // add link to brewery 
                         // location and info on brewery
-                    {/* })} */}
+
+                    ))} 
                 </div>
         </div>
     )
 }
 
 const mapStateToProps = state => {
-    debugger
     return {
         liked: state.user.breweries 
     }

@@ -11,51 +11,28 @@ class Breweries extends Component {
             liked: false
         }
     }
-    
-    // heart = (brewery) => {
-    //     if(this.state !== undefined){
-    //     this.props.user.breweries.includes(brewery) ? 
-    //     this.setState({
-    //         liked: true
-    //     })
-    //      : 
-    //      this.setState({
-    //         liked: false
-    //     })
-    //     } else {
-    //         this.setState({
-    //             liked: false
-    //         })
-    //     }
-    // }
 
     handleLike = () => {
         this.setState({
             liked: !this.state.liked
         })
-        debugger
         const info = {brewery: this.props.brewery, user: this.props.user}
         this.props.like(info)
     }
 
     render(){
-        debugger
         return(
             <div className="like-btn">
-                <button 
-                onClick={this.handleLike}
-                >
-                {this.props.liked.includes(this.props.brewery) ?  <i className="fas fa-heart"></i>
-                 : <i class="far fa-heart"></i>}
-
-            </button>
-               
+                <button onClick={this.handleLike}>
+                    {this.props.liked.includes(this.props.brewery) ? 
+                    <i className="fas fa-heart"></i>
+                    : <i className="far fa-heart"></i>}
+                </button>
             </div>
         )
     }
 }
 const mapStateToProps = state => {
-    // debugger
     return {
         liked: state.user.breweries,
         user: state.user

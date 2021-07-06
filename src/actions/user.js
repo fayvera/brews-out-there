@@ -62,11 +62,9 @@ export const like = (info) => {
             headers: {'Content-Type': 'application/json',
             'Accept': 'application/json'},
             body: JSON.stringify({brewery: {...info.brewery}, user_id: info.user.id, user: {...info.user}})
-            // config
         })
         .then(r => r.json())
-        .then(console.log)
-        .then(resp => dispatch({ type: 'UPDATE_USER', payload: resp}))
+        .then(brews => dispatch({ type: 'UPDATE_USER', payload: brews}))
         .catch(err => console.log(err))
     }
 }

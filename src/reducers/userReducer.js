@@ -11,7 +11,7 @@ const userReducer = (state = {}, action) => {
     case "UPDATE_USER":
         debugger
         return Object.assign({}, ...state.breweries, action.payload)
-            // ...state, s
+            // ...state, 
             // action.payload
         
     //     const brewery = state.find(brewery => brewery.id === action.payload.id)
@@ -19,17 +19,6 @@ const userReducer = (state = {}, action) => {
 
 
         // when user likes a brewery
-
-
-    // case "LIKE":
-    //   index = state.findIndex(quote => quote.id === action.quoteId)
-    //   quote = state[index]
-    //   return [
-    //     ...state.slice(0, index),
-    //     Object.assign({}, quote, {votes: quote.votes += 1}),
-    //     ...state.slice(index+1)
-    //   ];
-        // case "UNLIKE":
         
     default:
         return state

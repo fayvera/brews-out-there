@@ -1,8 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { useState } from 'react'
+// import { useState } from 'react'
 
 function Favorites(props){
+
+    // debugger
 
     return(
         <div className="usr_favorites_div">
@@ -11,11 +13,13 @@ function Favorites(props){
                     {props.liked.map((brewery, index) => (
                         <div classname="fav-brewery" key={index}> 
                             <h3>{brewery.name}</h3>
-                            <h4>{brewery.brewery_type}</h4>
+                            <h4>Type: {brewery.brewery_type}</h4>
                             {brewery.phone ? 
                             <i class="fa fa-phone" aria-hidden="true"> {brewery.phone} </i>
                             : null}
-                            {brewery.website ? <h5>{brewery.website}</h5> : null}
+                            <div className= "website">
+                            {brewery.website ? <h5>Website: <a>{brewery.website}</a></h5> : null}
+                            </div>
                         </div>
 
           

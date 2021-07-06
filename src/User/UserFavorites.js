@@ -4,10 +4,6 @@ import { useState } from 'react'
 
 function Favorites(props){
 
-    // const [likes, setLiked] = useState([])
-    // const {liked} = props.liked
-    debugger
-
     return(
         <div className="usr_favorites_div">
             <h1>My Favorite Places:</h1>
@@ -15,8 +11,11 @@ function Favorites(props){
                     {props.liked.map((brewery, index) => (
                         <div classname="fav-brewery" key={index}> 
                             <h3>{brewery.name}</h3>
-                            <p> Info about brewery</p>
-                            <h4>{brewery.type}</h4>
+                            <h4>{brewery.brewery_type}</h4>
+                            {brewery.phone ? 
+                            <i class="fa fa-phone" aria-hidden="true"> {brewery.phone} </i>
+                            : null}
+                            {brewery.website ? <h5>{brewery.website}</h5> : null}
                         </div>
 
           

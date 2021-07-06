@@ -95,3 +95,14 @@
     -moz-transition: all .4s;
     transition: all .4s;
   }
+
+  .list-brew {
+    /* display: flex; */
+    padding: 10px;
+  }
+
+  .fav-brewery {
+    display: block;
+    padding: 20px;
+    border-radius: 2px;
+  }

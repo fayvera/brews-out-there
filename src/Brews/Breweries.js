@@ -10,6 +10,13 @@ class Breweries extends Component {
         this.state = {
             liked: false
         }
+        // debugger
+        // this.props.user.breweries.include(this.props.selected) ? 
+        // this.state = {
+        //     liked: false
+        // } : this.state ={
+        //     liked: true
+        // }
     }
 
     handleLike = () => {
@@ -27,9 +34,11 @@ class Breweries extends Component {
         return(
             <div className="like-btn">
                 <button onClick={this.handleLike}>
-                    {this.props.liked.includes(this.props.brewery) ? 
+                    {/* {this.props.liked && this.props.brewery ? */}
+                    {this.props.user.liked.includes(this.props.brewery) ? 
                     <i className="fas fa-heart"></i>
                     : <i className="far fa-heart"></i>}
+                    {/* //  : this.props.user  */}
                 </button>
             </div>
         )

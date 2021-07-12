@@ -19,6 +19,8 @@ function Favorites(props){
                             : null}
                             <div className= "website">
                             {brewery.website ? <h5>Website: <a>{brewery.website}</a></h5> : null}
+                            <br></br>
+                            <br></br>
                             </div>
                         </div>
 

@@ -10,15 +10,10 @@ const userReducer = (state = {}, action) => {
         return {}
     case "UPDATE_USER":
         debugger
-        return Object.assign({}, ...state.breweries, action.payload)
-            // ...state, 
-            // action.payload
-        
+        return Object.assign({}, action.payload,  ...state.breweries)
+
     //     const brewery = state.find(brewery => brewery.id === action.payload.id)
         // return  brewery.state.liked ? unlike : like
-
-
-        // when user likes a brewery
         
     default:
         return state

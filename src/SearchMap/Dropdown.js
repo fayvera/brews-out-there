@@ -69,5 +69,12 @@ function Dropdown({title, items, multiSelect = false}){
         )
 }
 
+const mapStateToProps = state => {
+    debugger
+    return {
+        selection: state
+    }
+}
 
-export default connect(null, {fetchByType})(Dropdown)
+
+export default connect(mapStateToProps, {fetchByType})(Dropdown)

@@ -35,7 +35,7 @@ class Breweries extends Component {
             <div className="like-btn">
                 <button onClick={this.handleLike}>
                     {/* {this.props.liked && this.props.brewery ? */}
-                    {this.props.user.liked.includes(this.props.brewery) ? 
+                    {this.props.user.breweries.includes(this.props.brewery) ? 
                     <i className="fas fa-heart"></i>
                     : <i className="far fa-heart"></i>}
                     {/* //  : this.props.user  */}

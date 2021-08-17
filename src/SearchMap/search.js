@@ -29,17 +29,11 @@ class Search extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        // this.state.searches.push(this.state.input)
-        // console.log(this.state.searches)
-        // debugger
     
         if (this.state.input !== ""){
             const formatInput = this.state.input.trim().split(' ').join('_').toLocaleLowerCase() 
-
             this.handleSelect(formatInput)
             this.props.fetchByCity(formatInput)
-
-            
         } else {
             alert("Please Input Location")
         }

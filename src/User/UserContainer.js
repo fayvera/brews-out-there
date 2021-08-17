@@ -24,7 +24,11 @@ class UserContainer extends Component {
     }
 
     isLoggedIn = () => {
-        if (Object.keys(this.props.user).length === 0 || this.props.user === undefined){
+        if (!this.props.validUser){
+            // if not logged in
+            if(this.props.user.status === 500){
+                this.props.logout()
+            }
             return (
                 <>
                 <Switch>
@@ -34,6 +38,7 @@ class UserContainer extends Component {
                 </>
                 )
             } else {
+                //  if user is logged in
                 return(
                     <div>
                         <Switch>
@@ -63,4 +68,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { currentUser, login, signup, logout})(UserContainer)
+export default connect(mapStateToProps, { currentUser, login, signup, logout})(UserContainer) 

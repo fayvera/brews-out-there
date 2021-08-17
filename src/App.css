@@ -46,6 +46,9 @@
   /* -moz-transition: color 1.5s ease-out; */
   /* -o-transition: color 1.5s ease-out; */
   transition: color 1.5s ease-in;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
 .wlcm-msg:hover, .wlcm-msg::after{
@@ -106,14 +109,3 @@
   left: 0;
 }
 
-.login, .signup{
-  /* display: grid; */
-  display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-}
-
-.login_form{
-  padding: 20px;
-}

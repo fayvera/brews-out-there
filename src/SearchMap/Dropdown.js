@@ -48,7 +48,10 @@ function Dropdown({title, items, multiSelect = false}){
                     <p className="dd-header__title--bold">{title}</p>
                 </div>
                 <div className="dd-header__action">
-                    <p>{open ? "Done" : "Open"}</p>
+                    <p>{open ? 
+                    <i className="fas fa-window-close" />
+                    : <i className="fas fa-ellipsis-v"/>}
+                    </p>
                 </div>
             </div>
             {open && (
@@ -66,5 +69,12 @@ function Dropdown({title, items, multiSelect = false}){
         )
 }
 
+const mapStateToProps = state => {
+    // debugger
+    return {
+        selection: state
+    }
+}
 
-export default connect(null, {fetchByType})(Dropdown)
+
+export default connect(mapStateToProps, {fetchByType})(Dropdown)

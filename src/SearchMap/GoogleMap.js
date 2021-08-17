@@ -1,9 +1,14 @@
-import React from 'react'
+import React, {useState, useCallback, useEffect, useRef} from 'react'
 import './search.css'
 import { connect } from 'react-redux'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api'
 import Locate from './Locate'
 import Search from './search'
+import './beer-marker.jpg'
+import { getLatLng, getGeocode } from 'use-places-autocomplete'
+import {updateAddress} from '../actions/fetchBreweries'
+import Breweries from '../Brews/Breweries.js'
+
 
 
 const libraries = ["places"]
@@ -16,17 +21,20 @@ const center = {
         lng: -73.935242
 }
 
+
+
 function Map(props){
     const {isLoaded, loadError} = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY,
         libraries
     })
 
-    const [markers, setMarkers] = React.useState([])
-    const [selected, setSelected] = React.useState(null)
+
+    const [markers, setMarkers] = useState([])
+    const [selected, setSelected] = useState(null)
 
 
-    const onMapClick = React.useCallback((event) => {
+    const onMapClick = useCallback((event) => {
         setMarkers((current) => [
             ...current,
             {
@@ -34,20 +42,37 @@ function Map(props){
                 lng: event.latLng.lng()
             }
         ]
-        )})
-        
+        )}, [])
 
+    useEffect(() => {
+        props.breweries.map((brewery) => {
+           return (brewery.latitude ? null : getAddress(brewery))
+        })
+    })
+ 
+    function getAddress(b){
+        const address = `${b.street} ${b.city} ${b.state} ${b.postal_code}`;
+        getGeocode({ address })
+        .then((results) => getLatLng(results[0]))
+        .then(({ lat, lng }) => {
+            b.latitude = lat
+            b.longitude = lng
+            props.updateAddress(b)
+        })
+        .catch((e) => console.log(e))
+    }
 
-    const mapRef = React.useRef();
-    const onMapLoad = React.useCallback((map) => {
+    const mapRef = useRef();
+    const onMapLoad = useCallback((map) => {
         mapRef.current = map
     }, []);    
 
-    const panTo = React.useCallback(({ lat, lng }) => {
+    const panTo = useCallback(({ lat, lng }) => {
         mapRef.current.panTo({lat, lng});
-        mapRef.current.setZoom(14)
+        mapRef.current.setZoom(12)
     }, [])
 
+    const image = './beer-marker.jpg'
 
  
     if(loadError) return 'Error loading maps';
@@ -56,7 +81,7 @@ function Map(props){
     return(
         <div className="map-wrapper">
 
-            <Search panTo={panTo} />
+            <Search panTo={panTo} markers={<Marker/>}/>
             <Locate panTo={panTo}/>
 
             <div className="map-div">
@@ -67,36 +92,37 @@ function Map(props){
                 onLoad={onMapLoad}
                 onClick={onMapClick}>
                     {props.breweries.map((brewery, index) => (
-                    brewery.latitude ? 
                         <Marker 
+                        
                         key={index}
                         position={{
                             lat: Math.fround(brewery.latitude), 
                             lng: Math.fround(brewery.longitude)}}
-                        // icon={<i className="fas fa-beer"/>}
                         onClick={() => {
                             setSelected(brewery)
                         }}
                         > 
-                        {selected ? (
-                            <InfoWindow position={{lat: selected.lat, lng: selected.lng}} 
-                            onCloseClick ={() => {
-                            setSelected(null)
+                        {selected === brewery ? (
+                            <InfoWindow position={{ lat: selected.latitude, lng: selected.longitude }} 
+                            onCloseClick={() => {
+                            setSelected(null);
+                            
                         }}>
                             <div>
                                 <h2>{selected.name}</h2>
-                                <p>Here will be the info</p>
+                                <h5>Brewery type: {selected.brewery_type}</h5> 
+                                <Breweries brewery={selected}
+                                />
+                                {brewery.website_url ? <h5>Website: {brewery.website_url}</h5>  : null}
+                                {brewery.phone ? <h5>Phone Number: {brewery.phone}</h5>  : null}
+
                             </div>
-                        </InfoWindow>) : null }    
+                        </InfoWindow>) : null
+                        })    
                         
                         </Marker>
-                    : 
-                        null
                     ))}
                         
-                        
-                
-
                 </GoogleMap>
             </div>
         </div>
@@ -105,8 +131,11 @@ function Map(props){
 
 const mapStateToProps = state => {
     return {
-        breweries: state.breweries
+        breweries: state.breweries,
+        user: state.user
     }
 }
 
-export default connect(mapStateToProps)(Map)
+export default connect(mapStateToProps, {updateAddress})(Map)
+
+

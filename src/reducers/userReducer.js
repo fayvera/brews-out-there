@@ -8,17 +8,12 @@ const userReducer = (state = {}, action) => {
         return action.payload
     case "LOG_OUT":
         return {}
-    // case "UPDATE_USER":
-        // when user likes a brewery
-    // case "LIKE":
-    //   index = state.findIndex(quote => quote.id === action.quoteId)
-    //   quote = state[index]
-    //   return [
-    //     ...state.slice(0, index),
-    //     Object.assign({}, quote, {votes: quote.votes += 1}),
-    //     ...state.slice(index+1)
-    //   ];
-        // case "UNLIKE":
+    case "UPDATE_USER":
+        // debugger
+        return Object.assign({}, ...state, action.payload)
+// state.breweries
+    //     const brewery = state.find(brewery => brewery.id === action.payload.id)
+        // return  brewery.state.liked ? unlike : like
         
     default:
         return state

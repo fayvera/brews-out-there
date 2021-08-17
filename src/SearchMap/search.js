@@ -1,17 +1,17 @@
 import React from 'react'
 import {fetchBreweriesType, fetchByCity} from '../actions/fetchBreweries'
 import { connect } from 'react-redux';
-// import Map from './GoogleMap'
 import './search.css'
 import Dropdown from './Dropdown'
-import { getGeocode, getLatLng } from "use-places-autocomplete"
-// import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption} from "@reach/combobox"
+import usePlacesAutocomplete, { getGeocode, getLatLng } from "use-places-autocomplete"
+import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption} from "@reach/combobox"
 
 class Search extends React.Component {
     constructor(){
         super();
         this.state ={
-            input: ""
+            input: "",
+            searches: []
         }
     }
 
@@ -24,19 +24,19 @@ class Search extends React.Component {
             console.log("error!")
             }
         }
+    
+
 
     handleSubmit = event => {
         event.preventDefault();
+    
         if (this.state.input !== ""){
-            const formatInput = this.state.input.split(' ').join('_').toLocaleLowerCase() 
+            const formatInput = this.state.input.trim().split(' ').join('_').toLocaleLowerCase() 
             this.handleSelect(formatInput)
             this.props.fetchByCity(formatInput)
- 
         } else {
             alert("Please Input Location")
         }
-        // debugger
-        // this.props.placeMarkers(locations)
     }
     
     handleChange = e => {
@@ -92,7 +92,6 @@ class Search extends React.Component {
                     {/* <i className="fas fa-ellipsis-v" onClick={this.handleFilter}></i> */}
                 </form>
                     <Dropdown title="Filter" items={this.items} multiSelect/>
-
             </div>
         )   
     }
@@ -102,77 +101,3 @@ class Search extends React.Component {
 export default connect(null, {fetchBreweriesType, fetchByCity})(Search)
 
 
-
-
-
-
-
-// function Search({ panTo }){
-//     const {ready, 
-//         value, 
-//         suggestions: {status, data}, 
-//         setValue,
-//          setState,
-//         clearSuggestions
-//         } = usePlacesAutocomplete({
-//         requestOptions: {
-//             location: {lat: () => 40.730610, lng: () => -73.935242},
-//             radius: 200 * 1000.
-//         }
-//     })
-
-    
-//     const handleSelect = async (address) => {
-//         setValue(address, false);
-//         clearSuggestions()
-//         try {
-//             const results = await getGeocode({address});
-//             const { lat, lng } = await getLatLng(results[0])
-//             panTo({ lat, lng });
-//         } catch (error){
-//             console.log("error!")
-//             }
-//         }
-
-//     return (
-//         <div className="search-bar">
-//             <Combobox onSelect={handleSelect}>
-
-//                 {/* <form onSubmit={handleSubmit}>
-//                     <input type="text" 
-//                     disabled={!ready}
-//                     value={value} 
-//                     placeholder="Search by Location"
-//                     onChange={handleInput}
-//                     />
-//                     <button type="submit"></button>
-//                 </form> */}
-
-
-//                 <ComboboxInput 
-//                 value={value} 
-//                 onChange={handleInput}
-//                 disabled={!ready}
-//                 placeholder="Search by Location"
-//                 onPanChange={handleSubmit}
-//                 >
-//                 </ComboboxInput>
-                
-
-//             <ComboboxPopover
-//             className="search-popover">
-//                 <ComboboxList>
-//                     {status === "OK" && data.map(({id, description}) => (
-//                     <ComboboxOption 
-//                         key={id} 
-//                         value={description}/>
-//                         ))}
-//                 </ComboboxList>
-//             </ComboboxPopover>
-//         </Combobox>
-//         <Dropdown title="Filter" items={items} multiSelect/>
-//     </div>
-//     )
-// }
-
-// export default connect(null, { fetchByCity, fetchBreweriesType })(Search)

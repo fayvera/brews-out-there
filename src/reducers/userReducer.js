@@ -9,7 +9,7 @@ const userReducer = (state = {}, action) => {
     case "LOG_OUT":
         return {}
     case "UPDATE_USER":
-        debugger
+        // debugger
         return Object.assign({}, ...state, action.payload)
 // state.breweries
     //     const brewery = state.find(brewery => brewery.id === action.payload.id)

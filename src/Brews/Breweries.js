@@ -24,13 +24,13 @@ class Breweries extends Component {
             liked: !this.state.liked
         })
         const info = {brewery: this.props.brewery, user: this.props.user}
-        debugger
+        // debugger
         this.props.like(info)
     }
 
 
     render(){
-        debugger
+        // debugger
         return(
             <div className="like-btn">
                 <button onClick={this.handleLike}>

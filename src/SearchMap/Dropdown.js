@@ -70,7 +70,7 @@ function Dropdown({title, items, multiSelect = false}){
 }
 
 const mapStateToProps = state => {
-    debugger
+    // debugger
     return {
         selection: state
     }

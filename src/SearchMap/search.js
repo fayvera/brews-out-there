@@ -34,7 +34,8 @@ class Search extends React.Component {
         // debugger
     
         if (this.state.input !== ""){
-            const formatInput = this.state.input.split(' ').join('_').toLocaleLowerCase() 
+            const formatInput = this.state.input.trim().split(' ').join('_').toLocaleLowerCase() 
+
             this.handleSelect(formatInput)
             this.props.fetchByCity(formatInput)
 
